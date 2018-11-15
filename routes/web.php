@@ -28,12 +28,13 @@ Route::get('/tipsInfo/artikelA', function () {
     return view('frontend/artikelA');
 });
 
-//testing routing
-Route::get('/adminO', function () {
-    return view('backend/homeAdmin');
-});
+//routing halaman login admin backend
 Route::get('/adminLogin', function () {
-    return view('layouts/auth');
+    return view('backend/login');
+});
+
+Route::get('/resetPass', function () {
+    return view('backend/passwords/email');
 });
 
 Route::get('/admin', function () {
@@ -41,7 +42,6 @@ Route::get('/admin', function () {
 });
 
 
-
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/homeAdmin', 'HomeController@indexAdmin')->name('homeAdmin');
