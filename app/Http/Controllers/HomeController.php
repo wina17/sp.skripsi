@@ -26,4 +26,9 @@ class HomeController extends Controller
     {
         return view('backend.homeAdmin');
     }
+
+    public function dataAdmin()
+    {
+        return view('backend.dataAdmin');
+    }
 }

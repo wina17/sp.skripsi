@@ -45,3 +45,4 @@ Route::get('/admin', function () {
 Auth::routes();
 
 Route::get('/homeAdmin', 'HomeController@indexAdmin')->name('homeAdmin');
+Route::get('/dataAdmin', 'HomeController@dataAdmin')->name('dataAdmin');
