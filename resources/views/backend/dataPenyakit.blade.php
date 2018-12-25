@@ -24,7 +24,7 @@
         <div class="col-xs-12">
           <div class="box">
             <div class="box-header">
-              <a href="{{ route('tambahAdmin') }}" class="btn btn-primary btn-sm mb-4">
+              <a href="{{ url('#') }}" class="btn btn-primary btn-sm mb-4">
                 Tambah Data
             </a>
             </div>
@@ -35,21 +35,21 @@
                       <tr>
                           <th style="text-align: center;">NO</th>
                           <th style="text-align: center;">NAMA</th>
-                          <th style="text-align: center;">EMAIL</th>
+                          <th style="text-align: center;">KODE</th>
                           <th style="text-align: center;">AKSI</th>
                       </tr>
                   </thead>
                   <tbody>
-                      @foreach ($users as $user)
+                      @foreach ($penyakits as $penyakit)
                         <tr>
                           <td style="text-align: center;">{{ $loop->iteration }}</td>
-                          <td>{{ $user->name }}</td>
-                          <td>{{ $user->email }}</td>
+                          <td>{{ $penyakit->nama }}</td>
+                          <td>{{ $penyakit->kode }}</td>
                         </tr>
                       @endforeach
                   </tbody>
                 </table>
-                {{ $users->links() }}
+                {{ $penyakits->links() }}
             </div>
             <!-- /.box-body -->
           </div>

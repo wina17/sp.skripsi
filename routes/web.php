@@ -11,6 +11,8 @@
 |
 */
 
+/* Rounting sisi frontend 
+website untuk tamu */
 Route::get('/', function () {
     return view('frontend/home');
 });
@@ -28,21 +30,27 @@ Route::get('/tipsInfo/artikelA', function () {
     return view('frontend/artikelA');
 });
 
+/* Routing untuk sisi backend
+website menuju administrator*/
 //routing halaman login admin backend
 Route::get('/adminLogin', function () {
     return view('backend/login');
 });
 
-Route::get('/resetPass', function () {
+Route::get('/adminResetPass', function () {
     return view('backend/passwords/email');
 });
 
-Route::get('/admin', function () {
-    return view('welcome');
-});
-
-
+/* Routing sisi backend (admin)
+setelah dilakukan authentikasi */
 Auth::routes();
 
 Route::get('/homeAdmin', 'HomeController@indexAdmin')->name('homeAdmin');
-Route::get('/dataAdmin', 'HomeController@dataAdmin')->name('dataAdmin');
+
+Route::get('/dataAdmin', 'UserController@index')->name('dataAdmin');
+Route::get('/tambahAdmin', 'UserController@tambah')->name('tambahAdmin');
+Route::post('/simpanAdmin', 'UserController@simpan');
+
+Route::get('/dataPenyakit', 'PenyakitController@index')->name('dataPenyakit');
+
+Route::get('/dataGejala', 'GejalaController@index')->name('dataGejala');

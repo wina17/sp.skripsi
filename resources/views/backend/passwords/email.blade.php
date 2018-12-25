@@ -2,7 +2,7 @@
 @section('content')
 <div class="login-box">
   <div class="login-logo">
-    <a href="">Reset Password<b>Admin</b>LTE</a>
+    <a href="">Reset Password <b>Admin</b>LTE</a>
   </div>
 
   @if (session('status'))

@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html>
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>AdminLTE 2 | Dashboard</title>
+  <title>{{ config('app.name', 'Laravel') }}</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   <!-- Link gambar ikon -->
@@ -105,65 +105,36 @@
       </div>
       <!-- sidebar menu: : style can be found in sidebar.less -->
       <ul class="sidebar-menu" data-widget="tree">
-        <li class="header">NAVIGASI UTAMA</li>
-        <li class="active treeview">
-          <a href="#">
-            <i class="fa fa-dashboard"></i> <span>Dashboard</span>
-            <span class="pull-right-container">
-            </span>
+        <li class="header">MAIN NAVIGATION</li>
+        <li>
+          <a href="{{ route('homeAdmin') }}">
+            <i class="fa fa-dashboard"></i>
+            <span>Home</span>
           </a>
         </li>
-        <li class="treeview">
-          <a href="{{ url ('dataAdmin') }}">
-            <i class="fa fa-files-o"></i>
+        <li>
+          <a href="{{ route('dataAdmin') }}">
+            <i class="fa fa-dashboard"></i>
             <span>Data Admin</span>
-            <span class="pull-right-container"></span>
           </a>
-        </li>
-        <li class="treeview">
-          <a href="pages/widgets.html">
-            <i class="fa fa-th"></i> <span>Data User</span>
-            <span class="pull-right-container"></span>
-          </a>
-        </li>
-        <li class="treeview">
-          <a href="pages/widgets.html">
-            <i class="fa fa-th"></i> <span>Data Anjing</span>
-            <span class="pull-right-container"></span>
-          </a>
-        </li>
-        <li class="treeview">
-          <a href="#">
-            <i class="fa fa-pie-chart"></i>
+        </li>        
+        <li>
+          <a href="{{ route('dataPenyakit') }}">
+            <i class="fa fa-dashboard"></i>
             <span>Data Penyakit</span>
-            <span class="pull-right-container"></span>
           </a>
         </li>
-        <li class="treeview">
-          <a href="#">
-            <i class="fa fa-laptop"></i>
+        <li>
+          <a href="{{ route('dataGejala') }}">
+            <i class="fa fa-dashboard"></i>
             <span>Data Gejala</span>
-            <span class="pull-right-container"></span>
           </a>
         </li>
-        <li class="treeview">
-          <a href="#">
-            <i class="fa fa-edit"></i>
-            <span>Data Solusi</span>
-            <span class="pull-right-container"></span>
-          </a>
-        </li>
-        <li class="treeview">
-          <a href="#">
-            <i class="fa fa-table"></i>
-            <span>Riwayat Konsultasi</span>
-            <span class="pull-right-container">
-            </span>
-          </a>
-        </li>
-        <li class="header">INFORMATION</li>
-        <li><a href="#"><i class="fa fa-circle-o text-red"></i> <span>Pakar</span></a></li>
-        <li><a href="#"><i class="fa fa-circle-o text-yellow"></i> <span>Developer</span></a></li>
+        <li><a href="https://adminlte.io/docs"><i class="fa fa-book"></i> <span>Documentation</span></a></li>
+        <li class="header">LABELS</li>
+        <li><a href="#"><i class="fa fa-circle-o text-red"></i> <span>Important</span></a></li>
+        <li><a href="#"><i class="fa fa-circle-o text-yellow"></i> <span>Warning</span></a></li>
+        <li><a href="#"><i class="fa fa-circle-o text-aqua"></i> <span>Information</span></a></li>
       </ul>
     </section>
     <!-- /.sidebar -->
@@ -385,7 +356,7 @@
 <!-- Slimscroll -->
 <script src="{{ asset ('backend/bower_components/jquery-slimscroll/jquery.slimscroll.min.js') }}"></script>
 <!-- FastClick -->
-<script src="bower_components/fastclick/lib/fastclick.js') }}"></script>
+<script src="{{ asset ('bower_components/fastclick/lib/fastclick.js') }}"></script>
 <!-- AdminLTE App -->
 <script src="{{ asset ('backend/dist/js/adminlte.min.js') }}"></script>
 <!-- AdminLTE dashboard demo (This is only for demo purposes) -->

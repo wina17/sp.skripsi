@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html >
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <head>
   <!-- Site made with Mobirise Website Builder v4.8.1, https://mobirise.com -->
   <meta charset="UTF-8">
@@ -8,7 +8,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
   <link rel="shortcut icon" href="{{ asset ('frontend/assets/images/mbr-122x116.jpg') }}" type="image/x-icon">
   <meta name="description" content="">
-  <title>Sistem Pakar Diagnosa Penyakit Anjing</title>
+  <title>{{ config('app.name', 'Laravel') }}</title>
   <link rel="stylesheet" href="{{ asset ('frontend/assets/web/assets/mobirise-icons/mobirise-icons.css') }}">
   <link rel="stylesheet" href="{{ asset ('frontend/assets/tether/tether.min.css') }}">
   <link rel="stylesheet" href="{{ asset ('frontend/assets/soundcloud-plugin/style.css') }}">
