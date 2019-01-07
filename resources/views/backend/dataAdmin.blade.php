@@ -45,6 +45,9 @@
                           <td style="text-align: center;">{{ $loop->iteration }}</td>
                           <td>{{ $user->name }}</td>
                           <td>{{ $user->email }}</td>
+                          <td>
+                            <a onclick="return confirm('Anda yakin');" href="{{ url('/dataAdmin/hapus/'.$user->id) }}" class="btn btn-danger btn-sm">Hapus</a>
+                          </td>
                         </tr>
                       @endforeach
                   </tbody>

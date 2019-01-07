@@ -49,19 +49,19 @@
         </div>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav nav-dropdown nav-right" data-app-modern-menu="true">
-                <li class="nav-item"><a class="nav-link link text-black display-4" href="#" aria-expanded="false">
+                <li class="nav-item"><a class="nav-link link text-black display-4" href="{{ url('/') }}" aria-expanded="false">
                     <span class="mbri-home mbr-iconfont mbr-iconfont-btn"></span>
                         Home
                     </a></li>
-                <li class="nav-item"><a class="nav-link link text-black display-4" href="#" aria-expanded="false">
+                <li class="nav-item"><a class="nav-link link text-black display-4" href="{{ url('/mulai') }}" aria-expanded="false">
                     <span class="mbri-info mbr-iconfont mbr-iconfont-btn"></span>
                         Sistem Pakar
                     </a></li>
-                <li class="nav-item"><a class="nav-link link text-black display-4" href="#" aria-expanded="false">
+                <li class="nav-item"><a class="nav-link link text-black display-4" href="{{ url('/tipsInfo') }}" aria-expanded="false">
                     <span class="mbri-idea mbr-iconfont mbr-iconfont-btn"></span>
                         Tips & Info
                     </a></li>
-                <li class="nav-item"><a class="nav-link link text-black display-4" href="#" aria-expanded="false">
+                <li class="nav-item"><a class="nav-link link text-black display-4" href="{{ url('/praktikDokter') }}" aria-expanded="false">
                     <span class="mbri-map-pin mbr-iconfont mbr-iconfont-btn"></span>
                         Praktik Dokter
                     </a></li>

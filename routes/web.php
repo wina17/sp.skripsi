@@ -11,24 +11,26 @@
 |
 */
 
+
 /* Rounting sisi frontend 
 website untuk tamu */
-Route::get('/', function () {
-    return view('frontend/home');
-});
-Route::get('/praktikDokter', function () {
-    return view('frontend/praktikDokter');
-});
-Route::get('/tipsInfo', function () {
-    return view('frontend/tipsInfo');
-});
-Route::get('/sistemPakar', function () {
-    return view('frontend/sistemPakar');
-});
-//routing halaman artikel untuk frontend
-Route::get('/tipsInfo/artikelA', function () {
-    return view('frontend/artikelA');
-});
+
+Route::get('/','BerandaController@index')->name('home');
+
+Route::get('/mulai','SPakarController@index');
+Route::post('/simpanpasien','SPakarController@simpan');
+
+
+// Route::get('/praktikDokter', function () {
+//     return view('frontend/praktikDokter');
+// });
+// Route::get('/tipsInfo', function () {
+//     return view('frontend/tipsInfo');
+// });
+// //routing halaman artikel untuk frontend
+// Route::get('/tipsInfo/artikelA', function () {
+//     return view('frontend/artikelA');
+// });
 
 /* Routing untuk sisi backend
 website menuju administrator*/
@@ -49,7 +51,8 @@ Route::get('/homeAdmin', 'HomeController@indexAdmin')->name('homeAdmin');
 
 Route::get('/dataAdmin', 'UserController@index')->name('dataAdmin');
 Route::get('/tambahAdmin', 'UserController@tambah')->name('tambahAdmin');
-Route::post('/simpanAdmin', 'UserController@simpan');
+Route::post('/simpanadmin', 'UserController@simpan');
+Route::get('/dataAdmin/hapus/{id}', 'UserController@hapus');
 
 Route::get('/dataPenyakit', 'PenyakitController@index')->name('dataPenyakit');
 
