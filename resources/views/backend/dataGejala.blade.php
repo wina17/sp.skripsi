@@ -24,7 +24,15 @@
         <div class="col-xs-12">
           <div class="box">
             <div class="box-header">
-              <a href="{{ url('#') }}" class="btn btn-primary btn-sm mb-4">
+              @if(Session::has('pesan'))
+                <div class="box-body">
+                    <div class="alert alert-info alert-dismissible" style="margin-top: 10px;">
+                    <a href="#" class="close" data-dismiss="alert">&times;</a>
+                        <h4><i class="fa fa-check"></i>{{ Session::get('pesan') }}</h4>  
+                    </div>
+                </div>
+              @endif
+              <a href="{{ route('tambahGejala') }}" class="btn btn-primary btn-sm mb-4">
                 Tambah Data
             </a>
             </div>
@@ -35,6 +43,7 @@
                       <tr>
                           <th style="text-align: center;">NO</th>
                           <th style="text-align: center;">NAMA</th>
+                          <th style="text-align: center;">DETAIL</th>
                           <th style="text-align: center;">KODE</th>
                           <th style="text-align: center;">AKSI</th>
                       </tr>
@@ -44,7 +53,13 @@
                         <tr>
                           <td style="text-align: center;">{{ $loop->iteration }}</td>
                           <td>{{ $gejala->nama }}</td>
+                          <td>{{ $gejala->detail }}</td>
                           <td>{{ $gejala->kode }}</td>
+                          <td>
+                            <a onclick="return confirm('Anda yakin menghapus?');" href="{{ url('/dataGejala/hapus/'.$gejala->id) }}" class="btn btn-danger btn-sm"><i class="fa fa-trash-o"style="padding-right: 10px;"></i>Hapus</a>
+                            <a href="{{ url('/dataGejala/edit/'.$gejala->id) }}" class="btn btn-info btn-sm"><i class="fa fa-pencil" style="padding-right: 10px;"></i>Edit
+                            </a>
+                          </td>
                         </tr>
                       @endforeach
                   </tbody>

@@ -24,6 +24,14 @@
         <div class="col-xs-12">
           <div class="box">
             <div class="box-header">
+              @if(Session::has('pesan'))
+                <div class="box-body">
+                    <div class="alert alert-info alert-dismissible" style="margin-top: 10px;">
+                    <a href="#" class="close" data-dismiss="alert">&times;</a>
+                        <h4><i class="fa fa-check"></i>{{ Session::get('pesan') }}</h4>  
+                    </div>
+                </div>
+            @endif
               <a href="{{ route('tambahAdmin') }}" class="btn btn-primary btn-sm mb-4">
                 Tambah Data
             </a>
@@ -46,7 +54,9 @@
                           <td>{{ $user->name }}</td>
                           <td>{{ $user->email }}</td>
                           <td>
-                            <a onclick="return confirm('Anda yakin');" href="{{ url('/dataAdmin/hapus/'.$user->id) }}" class="btn btn-danger btn-sm">Hapus</a>
+                            <a onclick="return confirm('Anda yakin menghapus?');" href="{{ url('/dataAdmin/hapus/'.$user->id) }}" class="btn btn-danger btn-sm"><i class="fa fa-trash-o"style="padding-right: 10px;"></i>Hapus</a>
+                            <a href="{{ url('/dataAdmin/edit/'.$user->id) }}" class="btn btn-info btn-sm"><i class="fa fa-pencil" style="padding-right: 10px;"></i>Edit
+                            </a>
                           </td>
                         </tr>
                       @endforeach

@@ -53,7 +53,21 @@ Route::get('/dataAdmin', 'UserController@index')->name('dataAdmin');
 Route::get('/tambahAdmin', 'UserController@tambah')->name('tambahAdmin');
 Route::post('/simpanadmin', 'UserController@simpan');
 Route::get('/dataAdmin/hapus/{id}', 'UserController@hapus');
+Route::get('/dataAdmin/edit/{id}', 'UserController@edit');
+Route::post('/dataAdmin/update/{id}', 'UserController@update'); 
 
 Route::get('/dataPenyakit', 'PenyakitController@index')->name('dataPenyakit');
+Route::get('/tambahPenyakit', 'PenyakitController@tambah')->name('tambahPenyakit');
+Route::post('/simpanpenyakit', 'PenyakitController@simpan');
+Route::get('/dataPenyakit/hapus/{id}', 'PenyakitController@hapus');
+Route::get('/dataPenyakit/edit/{id}', 'PenyakitController@edit');
+Route::put('/dataPenyakit/update/{id}', 'PenyakitController@update');
 
 Route::get('/dataGejala', 'GejalaController@index')->name('dataGejala');
+Route::get('/tambahGejala', 'GejalaController@tambah')->name('tambahGejala');
+Route::post('/simpangejala', 'GejalaController@simpan');
+Route::get('/dataGejala/hapus/{id}', 'GejalaController@hapus');
+Route::get('/dataGejala/edit/{id}', 'GejalaController@edit');
+Route::put('/dataGejala/update/{id}', 'GejalaController@update');
+
+Route::get('/dataAturan', 'AturanController@index')->name('dataAturan');

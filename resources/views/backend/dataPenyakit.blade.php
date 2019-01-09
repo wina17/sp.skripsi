@@ -24,7 +24,7 @@
         <div class="col-xs-12">
           <div class="box">
             <div class="box-header">
-              <a href="{{ url('#') }}" class="btn btn-primary btn-sm mb-4">
+              <a href="{{ route('tambahPenyakit') }}" class="btn btn-primary btn-sm mb-4">
                 Tambah Data
             </a>
             </div>
@@ -35,7 +35,7 @@
                       <tr>
                           <th style="text-align: center;">NO</th>
                           <th style="text-align: center;">NAMA</th>
-                          <th style="text-align: center;">KODE</th>
+                          <th style="text-align: center;">KODE</th><th style="text-align: center;">SOLUSI</th>
                           <th style="text-align: center;">AKSI</th>
                       </tr>
                   </thead>
@@ -45,6 +45,12 @@
                           <td style="text-align: center;">{{ $loop->iteration }}</td>
                           <td>{{ $penyakit->nama }}</td>
                           <td>{{ $penyakit->kode }}</td>
+                          <td>{{ $penyakit->solusi }}</td>
+                          <td>
+                            <a onclick="return confirm('Anda yakin menghapus?');" href="{{ url('/dataPenyakit/hapus/'.$penyakit->id) }}" class="btn btn-danger btn-sm"><i class="fa fa-trash-o"style="padding-right: 10px;"></i>Hapus</a>
+                            <a href="{{ url('/dataPenyakit/edit/'.$penyakit->id) }}" class="btn btn-info btn-sm"><i class="fa fa-pencil" style="padding-right: 10px;"></i>Edit
+                            </a>
+                          </td>
                         </tr>
                       @endforeach
                   </tbody>
