@@ -134,7 +134,7 @@
         <li>
           <a href="{{ route('dataAturan') }}">
             <i class="fa fa-book"></i> 
-            <span>Documentation</span>
+            <span>Data Aturan</span>
           </a>
         </li>
         <li class="header">LABELS</li>

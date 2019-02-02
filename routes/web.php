@@ -20,10 +20,14 @@ Route::get('/','BerandaController@index')->name('home');
 Route::get('/mulai','SPakarController@index');
 Route::post('/simpanpasien','SPakarController@simpan');
 
+Route::get('/sistemPakar/pertanyaan','SPakarController@pertanyaan');
+Route::post('/simpanDiagnosa','SPakarController@simpanDiagnosa');
 
-// Route::get('/praktikDokter', function () {
-//     return view('frontend/praktikDokter');
-// });
+Route::get('/sistemPakar/hasil','SPakarController@hasil');
+
+Route::get('/praktikDokter', function () {
+    return view('frontend/praktikDokter');
+});
 // Route::get('/tipsInfo', function () {
 //     return view('frontend/tipsInfo');
 // });
@@ -70,4 +74,10 @@ Route::get('/dataGejala/hapus/{id}', 'GejalaController@hapus');
 Route::get('/dataGejala/edit/{id}', 'GejalaController@edit');
 Route::put('/dataGejala/update/{id}', 'GejalaController@update');
 
+//data aturan
 Route::get('/dataAturan', 'AturanController@index')->name('dataAturan');
+Route::get('/dataAturan/tambah', 'AturanController@tambah')->name('tambahAturan');
+Route::post('/simpanaturan', 'AturanController@simpan');
+Route::get('/dataAturan/hapus/{id}', 'AturanController@hapus');
+Route::get('/dataAturan/edit/{id}', 'AturanController@edit');
+Route::put('/dataAturan/update/{id}', 'AturanController@update');

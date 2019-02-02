@@ -32,7 +32,7 @@
                     </div>
                 </div>
               @endif
-              <a href="{{ route('tambahGejala') }}" class="btn btn-primary btn-sm mb-4">
+              <a href="{{ route('tambahArtikel') }}" class="btn btn-primary btn-sm mb-4">
                 Tambah Data
             </a>
             </div>
@@ -42,31 +42,29 @@
                   <thead>
                       <tr>
                           <th style="text-align: center;">NO</th>
-                          <th style="text-align: center;">NAMA</th>
-                          <th style="text-align: center;">DETAIL</th>
-                          <th style="text-align: center;">PERTANYAAN</th>
-                          <th style="text-align: center;">KODE</th>
+                          <th style="text-align: center;">JUDUL ARTIKEL</th>
+                          <th style="text-align: center;">NAMA PENULIS</th>
                           <th style="text-align: center;">AKSI</th>
                       </tr>
                   </thead>
                   <tbody>
-                      @foreach ($gejalas as $gejala)
+                      @foreach ($artikels as $artikel)
                         <tr>
                           <td style="text-align: center;">{{ $loop->iteration }}</td>
-                          <td>{{ $gejala->nama }}</td>
-                          <td>{{ $gejala->detail }}</td>
-                          <td>{{ $gejala->pertanyaan }}</td>
-                          <td>{{ $gejala->kode }}</td>
+                          <td>{{ $artikel->nama }}</td>
+                          <td>{{ $artikel->detail }}</td>
+                          <td>{{ $artikel->pertanyaan }}</td>
+                          <td>{{ $artikel->kode }}</td>
                           <td>
-                            <a onclick="return confirm('Anda yakin menghapus?');" href="{{ url('/dataGejala/hapus/'.$gejala->id) }}" class="btn btn-danger btn-sm"><i class="fa fa-trash-o"style="padding-right: 10px;"></i>Hapus</a>
-                            <a href="{{ url('/dataGejala/edit/'.$gejala->id) }}" class="btn btn-info btn-sm"><i class="fa fa-pencil" style="padding-right: 10px;"></i>Edit
+                            <a onclick="return confirm('Anda yakin menghapus?');" href="{{ url('/dataGejala/hapus/'.$artikel->id) }}" class="btn btn-danger btn-sm"><i class="fa fa-trash-o"style="padding-right: 10px;"></i>Hapus</a>
+                            <a href="{{ url('/dataGejala/edit/'.$artikel->id) }}" class="btn btn-info btn-sm"><i class="fa fa-pencil" style="padding-right: 10px;"></i>Edit
                             </a>
                           </td>
                         </tr>
                       @endforeach
                   </tbody>
                 </table>
-                {{ $gejalas->links() }}
+                {{ $artikels->links() }}
             </div>
             <!-- /.box-body -->
           </div>

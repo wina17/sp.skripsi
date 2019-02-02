@@ -4,8 +4,10 @@
     <div class="container">
         <div class="media-container-row">
             <div class="title col-12 col-md-8"><br><br>
-                <h2 class="align-center mbr-bold mbr-white pb-3 mbr-fonts-style display-2">
-                    Sistem Pakar</h2>
+                <h5 class="align-center mbr-bold mbr-white pb-3 mbr-fonts-style display-2">
+                    Langkah 1</h5>
+                 <h5 class="align-left mbr-bold mbr-white pb-3 mbr-fonts-style display-2">
+                    Masukkan Identitas Anda</h5>
             </div>
           </div>
        </div>

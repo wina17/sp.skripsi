@@ -41,6 +41,11 @@
                     {{ Form::text('detail',null,['class'=>'form-control','placeholder' => 'Detail Gejala','autofocus']) }}
                     <span class="text-danger">{{ $errors->first('detail') }}</span>
                 </div>
+                <div class="form-group">    
+                    {{ Form::label('pertanyaan', 'Pertanyaan') }}    
+                    {{ Form::text('pertanyaan',null,['class'=>'form-control','placeholder' => 'Pertanyaan','autofocus']) }}
+                    <span class="text-danger">{{ $errors->first('pertanyaan') }}</span>
+                </div>
                 <div class="form-group">
                     {{ Form::label('kode', 'Kode') }}
                     {{ Form::text('kode',null,array('class'=>'form-control','placeholder' => 'Kode')) }}
@@ -57,4 +62,3 @@
     </section>
 </div>
 @endsection
-

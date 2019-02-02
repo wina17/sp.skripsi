@@ -25,8 +25,9 @@ class GejalaController extends Controller
         //validasi input yang ada di form
         $validasi = $this->validate($request,[
             'nama'      => 'required',
-            'detail',            
-            'kode'     => 'required|unique:gejalas',
+            'detail',
+            'pertanyaan'=> 'required',            
+            'kode'      => 'required|unique:gejalas',
         ]); 
         //ambil semua request
         $data = $request->all();
