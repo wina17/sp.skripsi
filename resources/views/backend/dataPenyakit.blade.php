@@ -62,6 +62,7 @@
         <!-- /.col -->
       </div>
       <!-- /.row -->
+    </section>
 </div>
 @endsection
 @push('body_css')

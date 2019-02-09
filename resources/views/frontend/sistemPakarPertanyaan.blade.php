@@ -36,26 +36,26 @@
                         <tr>
                           <td style="text-align: center;">{{ $loop->iteration }}</td>
                           <td>{{ $gejala->pertanyaan }}</td>
-<td>
-	{!! Form::hidden('gejala_id[]', $gejala->id, []) !!}
-	{{   Form::radio('jawaban['.$gejala->id.']', 0,false, ['id' => 'tidak'.$gejala->id]) }}	
-</td>                          
-<td>
-	{{  Form::radio('jawaban['.$gejala->id.']',0.2,false, ['id' => 'tidak_tahu'.$gejala->id]) 
-	}}
-</td>
-<td>
-	{{  Form::radio('jawaban['.$gejala->id.']',0.4,false, ['id' => 'mungkin'.$gejala->id]) 
-	}}
-</td>
-<td>
-	{{  Form::radio('jawaban['.$gejala->id.']',0.8,false, ['id' => 'yakin'.$gejala->id]) 
-	}}
-</td>
-<td>
-	{{  Form::radio('jawaban['.$gejala->id.']',1,false, ['id' => 'sangat_yakin'.$gejala->id]) 
-	}}
-</td>
+                          <td>
+                          	{!! Form::hidden('gejala_id[]', $gejala->id, []) !!}
+                          	{{   Form::radio('jawaban['.$gejala->id.']', 0,false, ['id' => 'tidak'.$gejala->id]) }}	
+                          </td>                          
+                          <td>
+                          	{{  Form::radio('jawaban['.$gejala->id.']',0.2,false, ['id' => 'tidak_tahu'.$gejala->id]) 
+                          	}}
+                          </td>
+                          <td>
+                          	{{  Form::radio('jawaban['.$gejala->id.']',0.4,false, ['id' => 'mungkin'.$gejala->id]) 
+                          	}}
+                          </td>
+                          <td>
+                          	{{  Form::radio('jawaban['.$gejala->id.']',0.8,false, ['id' => 'yakin'.$gejala->id]) 
+                          	}}
+                          </td>
+                          <td>
+                          	{{  Form::radio('jawaban['.$gejala->id.']',1,false, ['id' => 'sangat_yakin'.$gejala->id]) 
+                          	}}
+                          </td>
                         </tr>
                       @endforeach
                   </tbody>

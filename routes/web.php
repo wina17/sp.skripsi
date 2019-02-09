@@ -25,12 +25,15 @@ Route::post('/simpanDiagnosa','SPakarController@simpanDiagnosa');
 
 Route::get('/sistemPakar/hasil','SPakarController@hasil');
 
+Route::get('/sistemPakar/index_hasil','SPakarController@indexHasil');
+
 Route::get('/praktikDokter', function () {
     return view('frontend/praktikDokter');
 });
-// Route::get('/tipsInfo', function () {
-//     return view('frontend/tipsInfo');
-// });
+Route::get('/tipsInfo', function () {
+    return view('frontend/tipsInfo');
+});
+
 // //routing halaman artikel untuk frontend
 // Route::get('/tipsInfo/artikelA', function () {
 //     return view('frontend/artikelA');

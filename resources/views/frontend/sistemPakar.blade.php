@@ -30,8 +30,13 @@
 	                <span class="text-danger">{{ $errors->first('umur_anjing') }}</span>
 	            </div>
 	            <div class="form-group" style="padding: 10px;">
-	            	{{ Form::label('jekel_anjing', 'Jekel') }}
-	                {{ Form::text('jekel_anjing',null,['class'=>'form-control','placeholder' => 'Jekel ','autofocus']) }}
+	            	{{ Form::label('jekel_anjing', 'Jenis Kelamin') }}
+	            	<div>
+	            		{{ Form::radio('jekel_anjing', 'ja', false, ['style'=>'margin-left:30px;']) }}
+	            		{{ Form::label('jekel_anjing', 'Jantan', ['style'=>'font-size:24px; padding-right:30px;']) }}
+	            		{{ Form::radio('jekel_anjing', 'be', false, []) }}
+	            		{{ Form::label('jekel_anjing', 'Betina', ['style'=>'font-size:24px; padding-right:10px;']) }}
+	            	</div>
 	                <span class="text-danger">{{ $errors->first('jekel_anjing') }}
 	            </div>
 	            <div class="form-group" style="padding: 10px;">

@@ -6,6 +6,6 @@ use Illuminate\Database\Eloquent\Model;
 
 class Hitung extends Model
 {
-    protected $guarded=[];
+    protected $guarded =[];
     public $timestamps = false;
 }
