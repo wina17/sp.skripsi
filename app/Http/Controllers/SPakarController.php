@@ -3,10 +3,12 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use PDF;
 
 class SPakarController extends Controller
 {
     public function index(){
+        \Session::put('pasien_id',"");
     	$pasien 			= new \App\Pasien();
 		$data['pasien'] 	= $pasien;
 		$data['action'] 	= 'SPakarController@simpan';
@@ -16,7 +18,7 @@ class SPakarController extends Controller
     }
 
     public function simpan(Request $request)
-    {
+    {        
         //validasi input yang ada di form
     	$validasi = $this->validate($request,[
             'nama_anjing' 		=> 'required',
@@ -35,11 +37,19 @@ class SPakarController extends Controller
     }
 
     public function pertanyaan(){
+        \Session::put('periksa_id',"");
+        $pasien_id = \Session::get('pasien_id');
+        if ($pasien_id == "") 
+        {
+            return redirect('mulai');    
+        }
+        $pasien = \App\Pasien::findOrFail($pasien_id);
         $gejalas = \App\Gejala::orderBy('kode','asc')->get();
         $data['gejalas']    = $gejalas;
         $data['action']     = 'SPakarController@simpanDiagnosa';
         $data['btn_submit'] = 'Simpan';     
         $data['method']     = 'POST'; 
+        $data['pasien']     = $pasien;
         return view('frontend/sistemPakarPertanyaan',$data);
     }
 
@@ -49,9 +59,16 @@ class SPakarController extends Controller
         STEP KE-1
         Menyimpan seluruh jawaban kuisioner yang dipilih oleh user pada tabel *diagnosas*
         */
+        $periksa = new \App\Periksa();
+        $periksa->pasien_id=\Session::get('pasien_id');
+        $periksa->kode=str_random(4);
+        $periksa->save();
+        $periksa_id=$periksa->id;
+        \Session::put('periksa_id', $periksa_id);
+
         $gejala_id_array    = $request->gejala_id;
         $jawaban_array      = $request->jawaban;
-        $pasien_id = \Session::get('pasien_id');            
+        $pasien_id          = \Session::get('pasien_id');            
         for($i=0;$i<count($gejala_id_array);$i++)
         {
             $gejala_id = $gejala_id_array[$i];
@@ -65,6 +82,7 @@ class SPakarController extends Controller
             $tabel->pasien_id=$pasien_id;
             $tabel->gejala_id=$gejala_id;
             $tabel->jawaban=$jawaban;
+            $tabel->periksa_id=$periksa_id;
             $tabel->save();
         }
 
@@ -86,13 +104,13 @@ class SPakarController extends Controller
         $penyakits = \collect($penyakits);
         foreach ($penyakits as $penyakit) {        
             $penyakit_id = $penyakit->penyakit_id;
-            $diagnosa =\App\Diagnosa::wherePasienId($pasien_id)->get();
+            $diagnosa =\App\Diagnosa::wherePasienId($pasien_id)->wherePeriksaId($periksa_id)->get();
             foreach ($diagnosa as $v) {
                 $gejala_id = $v->gejala_id;
                 $jawaban   = $v->jawaban;
                 $aturan    = \App\Aturan::whereGejalaId($gejala_id)
-                                        ->wherePenyakitId($penyakit_id)->first();
-                if($aturan)
+                                        ->wherePenyakitId($penyakit_id);
+                if($aturan->exists())
                 {
                     $aturan   = $aturan->first();
                     $cf_pakar = $aturan->cf_pakar;
@@ -102,6 +120,7 @@ class SPakarController extends Controller
                     $hitung->gejala_id   = $gejala_id;
                     $hitung->cf_he       = $cf_he;
                     $hitung->pasien_id   = $pasien_id;
+                    $hitung->periksa_id   = $periksa_id;
                     $hitung->save();
                 }                
             }
@@ -116,14 +135,21 @@ class SPakarController extends Controller
     */
     public function hasil()
     {
-        $pasien_id = \Session::get('pasien_id');        
+        /*$a = 0.2+(0.8 * (1 - 0.2));
+        echo "<hr> $a";
+        exit;*/
+
+        $pasien_id = \Session::get('pasien_id');    
+        $periksa_id = \Session::get('periksa_id');        
         $penyakits = \DB::select("select *from aturans group by penyakit_id");
         $penyakits = \collect($penyakits);
         foreach ($penyakits as $penyakit) {
             $cf_he       = 0;
+            $a = 0;
             $penyakit_id = $penyakit->penyakit_id;
             echo "<h1>$penyakit_id</h1>";
             $diagnosa    =\App\Hitung::wherePasienId($pasien_id)
+                                      ->wherePeriksaId($periksa_id)
                                       ->wherePenyakitId($penyakit_id)->get();
             foreach ($diagnosa as $v) {
                 $cf_combine = $v->cf_he;
@@ -132,26 +158,60 @@ class SPakarController extends Controller
                                            ->wherePenyakitId($penyakit_id)
                                            ->first();
                 $cf2        = $v->jawaban;            
-                // $cf_he = $v->cf_he;
-                /*
+                
                 echo "Gejala $gejala_id : Penyakit $penyakit_id <br>";
-                echo " $cf_combine = $cf_he+$v->cf_he * (1 - $cf_he) <br>";
-                */
-                $cf_he = $cf_he+$v->cf_he * (1 - $cf_he);
+                //echo "$cf_he = $cf_he+$v->cf_he * (1 - $cf_he)<br>";
+                //$cf_he = $cf_he+($v->cf_he * (1 - $cf_he));
+                echo "$cf_he = $cf_he+$v->cf_he * (1 - $cf_he)<br>";
+                $cf_he2        = $v->cf_he * (1 - $cf_he);                
+                echo "$cf_he  = $cf_he+$cf_he2 <br>";
+                $cf_he  = $cf_he+$cf_he2;
+                                
+
             } 
             $presentase = $cf_he*100;
-            // echo "$presentase";  
-            // echo "<hr />";
+            echo "$presentase";  
+            echo "<hr />";
             $hitungPersen = new \App\HitungPersen();
             $hitungPersen->pasien_id   = $pasien_id;
             $hitungPersen->penyakit_id = $penyakit_id;
             $hitungPersen->persen      = $presentase;
+            $hitungPersen->periksa_id  = $periksa_id;
             $hitungPersen->save();
-        }return redirect('sistemPakar/index_hasil');
+        }
+        return redirect('sistemPakar/index_hasil');
     }
 
     public function indexHasil(){
-        $data['hitung_persens'] = \App\HitungPersen::all();
-        return view('frontend/sistemPakarHasil',$data);
+    $pasien_id = \Session::get('pasien_id');
+    $periksa_id = \Session::get('periksa_id');
+    $hasil     = \App\HitungPersen::orderBy('persen','desc')
+                                    ->wherePasienId($pasien_id)
+                                    ->wherePeriksaId($periksa_id)
+                                    ->take(1)->first();
+    $hasilchart = \App\HitungPersen::wherePasienId($pasien_id)
+                                    ->wherePeriksaId($periksa_id)
+                                    ->get();
+    $data['hasil']      =$hasil;
+    $data['hasilchart'] =$hasilchart;
+    //dd($hasil);
+    return view('frontend/sistemPakarHasil',$data);
     }
+
+    public function pdf(){
+    $pasien_id = \Session::get('pasien_id');
+    $periksa_id = \Session::get('periksa_id');
+    $hasil     = \App\HitungPersen::orderBy('persen','desc')
+                                    ->wherePasienId($pasien_id)
+                                    ->wherePeriksaId($periksa_id)
+                                    ->take(1)->first();
+    $hasilchart = \App\HitungPersen::wherePasienId($pasien_id)
+                                    ->wherePeriksaId($periksa_id)
+                                    ->get();
+    $data['hasil']      =$hasil;
+    $data['hasilchart'] =$hasilchart;
+        $pdf = \PDF::loadView('frontend/diagnosaPdf', $data);
+        return $pdf->download('diagnosa.pdf');
+    }
+
 }

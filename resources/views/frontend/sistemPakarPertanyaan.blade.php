@@ -14,8 +14,23 @@
 </section>
 
 <section class="container">
-{{ Form::model($gejalas, array('action' => $action, 'files' => true, 'method' => $method)) }}	
+  
+{{ Form::model($gejalas, array('action' => $action, 'files' => true, 'method' => $method)) }} 
       <div class="row" style="background-color: white; padding-top: 50px; padding-bottom: 50px;">
+        <div class="col-md-5">
+          <table class="table table-bordered">
+            <thead>
+              <tr>
+                <th>Nama Pemilik</th>
+                <td>{{ $pasien->nama_pemilik }}</td>
+              </tr>
+              <tr>
+                <th>Nama Anjing</th>
+                <td>{{ $pasien->nama_anjing }}</td>
+              </tr>
+            </thead>
+          </table>
+        </div>
         <div class="col-md-12">
           <div class="box">
             <div class="box-body">
@@ -36,23 +51,23 @@
                         <tr>
                           <td style="text-align: center;">{{ $loop->iteration }}</td>
                           <td>{{ $gejala->pertanyaan }}</td>
-                          <td>
+                          <td style="text-align: center;">
                           	{!! Form::hidden('gejala_id[]', $gejala->id, []) !!}
                           	{{   Form::radio('jawaban['.$gejala->id.']', 0,false, ['id' => 'tidak'.$gejala->id]) }}	
                           </td>                          
-                          <td>
+                          <td style="text-align: center;">
                           	{{  Form::radio('jawaban['.$gejala->id.']',0.2,false, ['id' => 'tidak_tahu'.$gejala->id]) 
                           	}}
-                          </td>
-                          <td>
+                          </td style="text-align: center;">
+                          <td style="text-align: center;">
                           	{{  Form::radio('jawaban['.$gejala->id.']',0.4,false, ['id' => 'mungkin'.$gejala->id]) 
                           	}}
                           </td>
-                          <td>
+                          <td style="text-align: center;">
                           	{{  Form::radio('jawaban['.$gejala->id.']',0.8,false, ['id' => 'yakin'.$gejala->id]) 
                           	}}
                           </td>
-                          <td>
+                          <td style="text-align: center;">
                           	{{  Form::radio('jawaban['.$gejala->id.']',1,false, ['id' => 'sangat_yakin'.$gejala->id]) 
                           	}}
                           </td>
@@ -65,7 +80,7 @@
           </div>
           <!-- /.box -->
         </div>
-        {!! Form::submit('SIMPAN', []) !!}
+        {!! Form::submit('SIMPAN', ['class' => 'btn btn-primary']) !!}
         {!! Form::close() !!}
         <!-- /.col -->
       </div>

@@ -27,6 +27,9 @@ Route::get('/sistemPakar/hasil','SPakarController@hasil');
 
 Route::get('/sistemPakar/index_hasil','SPakarController@indexHasil');
 
+Route::get('/sistemPakar/pdf','SPakarController@pdf');
+
+
 Route::get('/praktikDokter', function () {
     return view('frontend/praktikDokter');
 });

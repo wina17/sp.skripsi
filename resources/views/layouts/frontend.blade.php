@@ -21,9 +21,8 @@
   <link rel="stylesheet" href="{{ asset ('frontend/assets/slick.css') }}">
   <link rel="stylesheet" href="{{ asset ('frontend/assets/theme/css/style.css') }}">
   <link rel="stylesheet" href="{{ asset ('frontend/assets/mobirise/css/mbr-additional.css') }}" type="text/css">
-  
-  
-  
+<script src="{{ asset ('frontend/assets/web/assets/jquery/jquery.min.js') }}"></script>
+  <script src="{{ asset ('frontend/assets/popper/popper.min.js') }}"></script>  
 </head>
 <body>
   <section class="menu cid-qTkzRZLJNu" once="menu" id="menu1-0">
@@ -131,10 +130,6 @@
         </div>
     </div>
 </section>
-
-
-  <script src="{{ asset ('frontend/assets/web/assets/jquery/jquery.min.js') }}"></script>
-  <script src="{{ asset ('frontend/assets/popper/popper.min.js') }}"></script>
   <script src="{{ asset ('frontend/assets/tether/tether.min.js') }}"></script>
   <script src="{{ asset ('frontend/assets/bootstrap/js/bootstrap.min.js') }}"></script>
   <script src="{{ asset ('frontend/assets/smoothscroll/smooth-scroll.js') }}"></script>

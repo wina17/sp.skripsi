@@ -1,4 +1,5 @@
 @extends('layouts.frontend')
+
 @section('content')
 <section class="mbr-section content5 cid-r81rsCLT9y mbr-parallax-background" id="content5-h">
     <div class="container">
@@ -16,7 +17,7 @@
 	<div class="container" >
 		<div class="row" style="background-color: white; padding-top: 50px; padding-bottom: 50px;">
 	        <!-- left column -->
-	        <div class="col-md-8">
+	        <div class="col-md-6">
 	          <div class="box box-primary">
 	            {{ Form::model($pasien, array('action' => $action, 'files' => true,)) }}
 	            <div class="form-group" style="padding: 10px;">    
@@ -32,9 +33,9 @@
 	            <div class="form-group" style="padding: 10px;">
 	            	{{ Form::label('jekel_anjing', 'Jenis Kelamin') }}
 	            	<div>
-	            		{{ Form::radio('jekel_anjing', 'ja', false, ['style'=>'margin-left:30px;']) }}
+	            		{{ Form::radio('jekel_anjing', 'ja', false, ['style'=>'margin-left:30px; width: 18px; height: 18px;']) }}
 	            		{{ Form::label('jekel_anjing', 'Jantan', ['style'=>'font-size:24px; padding-right:30px;']) }}
-	            		{{ Form::radio('jekel_anjing', 'be', false, []) }}
+	            		{{ Form::radio('jekel_anjing', 'be', false, ['style'=>'width: 18px; height: 18px;']) }}
 	            		{{ Form::label('jekel_anjing', 'Betina', ['style'=>'font-size:24px; padding-right:10px;']) }}
 	            	</div>
 	                <span class="text-danger">{{ $errors->first('jekel_anjing') }}
@@ -54,6 +55,11 @@
 	            <!-- form start -->
 	          </div>
 	          <!-- /.box -->
+	        </div>
+	        <div class="col-md-6">
+	        	<div class="img-responsive">
+	        		<img src="{{ asset('frontend\assets\images\smiling-dog.png') }}" alt="" style="width: 100%;">
+	        	</div>
 	        </div>
 		</div>
 	</div>
