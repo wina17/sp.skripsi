@@ -211,7 +211,7 @@ class SPakarController extends Controller
     $data['hasil']      =$hasil;
     $data['hasilchart'] =$hasilchart;
         $pdf = \PDF::loadView('frontend/diagnosaPdf', $data);
-        return $pdf->download('diagnosa.pdf');
+        return $pdf->stream('diagnosa.pdf');
     }
 
 }
