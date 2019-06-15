@@ -7,10 +7,26 @@
   <!-- Latest compiled and minified CSS -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 </head>
+	<style type="text/css" media="screen">
+	@page{
+		margin: 3cm;
+	}
+	/*Font Styling*/
+	.font{
+		font-family: Arial,Helvetica,sans-serif;
+	}
+	/*Container*/
+	.container{
+		/*background-color: blue;*/
+	}
+	.sub-container{
+		/*background-color: yellow;*/
+		display: inline-block;
+		padding-bottom: 1px;
+		margin-top: 2cm;
+	}
+	</style>
 <body>
 {{-- <script src="{{ ltrim(public_path('chart/highcharts.js')) }}"></script>
 <script>
@@ -57,38 +73,31 @@
     });
 });
   </script> --}}
-	
+
 <div class="container">
-  <div class="media-container-row">
-      <div class="title col-12 col-md-8"><br><br>
-          <h2 class="align-center">
-              HASIL DIAGNOSA</h2>
-      </div>
-    </div>
-</div>
-
-<section class="container">
-  <div class="row" style="background-color: white; padding-top: 30px;padding-bottom: 30px;">
-    <div class="col-md-12">
-      <div class="row">
-            <div class="col-md-6">
-            <div class="alert alert-success" style="font-size: 24px; text-align: justify;">
-              <p>
-              </p>
-                Anjing anda, <strong>{{ $hasil->pasien->nama_anjing }} </strong> terdiagnosa terjangkit penyakit <strong>{{ $hasil->penyakit->nama }}</strong>.
-              <p>
-              Tindakan medis awal yang dapat anda lakukan:<br>
-              {{ $hasil->penyakit->solusi }}
-              </p>
+	<div class="sub-container" style="font-size: 20px;">
+		 <p style="font-style: italic; font-size: 12px;">- SISTEM PAKAR DIAGNOSA PENYAKIT ANJING / STIKOM Dinamika Bangsa Jambi-</p>
+		 <p class="font"><strong>Hasil Diagnosa</strong></p>
+         <p class="font">
+         	Anjing anda, <strong>{{ $hasil->pasien->nama_anjing }} </strong> terdiagnosa terjangkit penyakit <strong>{{ $hasil->penyakit->nama }}</strong>.
+         </p>
+         <p class="font">
+         	Tindakan medis awal yang dapat anda lakukan:<br>
+           {{ $hasil->penyakit->solusi }}
+         </p><br>
+         <div class="box-body">
+              <table class="table table-striped table-hover table-bordered">
+                  <thead>
+                      <tr>
+                          <th style="text-align: center;">PERTANYAAN</th>
+                          <th style="text-align: center;">JAWABAN</th>
+                      </tr>
+                  </thead>
+                  <tbody>
+                  </tbody>
+              </table>
           </div>
-          <div class="col-md-6">
-            <div id="container3">
-
-            </div>        
-      </div>
-    </div>
-      
-  </div>
-</section>
+	</div>
+</div>		
 </body>
 </html>

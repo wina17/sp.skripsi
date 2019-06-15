@@ -87,3 +87,11 @@ Route::post('/simpanaturan', 'AturanController@simpan');
 Route::get('/dataAturan/hapus/{id}', 'AturanController@hapus');
 Route::get('/dataAturan/edit/{id}', 'AturanController@edit');
 Route::put('/dataAturan/update/{id}', 'AturanController@update');
+
+//data artikel
+Route::get('/dataArtikel', 'ArtikelController@index')->name('dataArtikel');
+Route::get('/dataArtikel/tambah', 'ArtikelController@tambah')->name('tambahArtikel');
+Route::post('/simpanartikel', 'ArtikelController@simpan');
+Route::get('/dataArtikel/hapus/{id}', 'ArtikelController@hapus');
+Route::get('/dataArtikel/edit/{id}', 'ArtikelController@edit');
+Route::put('/dataArtikel/update/{id}', 'ArtikelController@update');

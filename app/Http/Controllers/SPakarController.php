@@ -43,7 +43,7 @@ class SPakarController extends Controller
         {
             return redirect('mulai');    
         }
-        $pasien = \App\Pasien::findOrFail($pasien_id);
+        $pasien  = \App\Pasien::findOrFail($pasien_id);
         $gejalas = \App\Gejala::orderBy('kode','asc')->get();
         $data['gejalas']    = $gejalas;
         $data['action']     = 'SPakarController@simpanDiagnosa';
@@ -139,16 +139,16 @@ class SPakarController extends Controller
         echo "<hr> $a";
         exit;*/
 
-        $pasien_id = \Session::get('pasien_id');    
+        $pasien_id  = \Session::get('pasien_id');    
         $periksa_id = \Session::get('periksa_id');        
-        $penyakits = \DB::select("select *from aturans group by penyakit_id");
-        $penyakits = \collect($penyakits);
+        $penyakits  = \DB::select("select *from aturans group by penyakit_id");
+        $penyakits  = \collect($penyakits);
         foreach ($penyakits as $penyakit) {
-            $cf_he       = 0;
-            $a = 0;
+            $cf_he = 0;
+            $a     = 0;
             $penyakit_id = $penyakit->penyakit_id;
             echo "<h1>$penyakit_id</h1>";
-            $diagnosa    =\App\Hitung::wherePasienId($pasien_id)
+            $diagnosa    = \App\Hitung::wherePasienId($pasien_id)
                                       ->wherePeriksaId($periksa_id)
                                       ->wherePenyakitId($penyakit_id)->get();
             foreach ($diagnosa as $v) {
@@ -162,12 +162,10 @@ class SPakarController extends Controller
                 echo "Gejala $gejala_id : Penyakit $penyakit_id <br>";
                 //echo "$cf_he = $cf_he+$v->cf_he * (1 - $cf_he)<br>";
                 //$cf_he = $cf_he+($v->cf_he * (1 - $cf_he));
-                echo "$cf_he = $cf_he+$v->cf_he * (1 - $cf_he)<br>";
-                $cf_he2        = $v->cf_he * (1 - $cf_he);                
+                echo "$cf_he  = $cf_he+$v->cf_he * (1 - $cf_he)<br>";
+                $cf_he2       = $v->cf_he * (1 - $cf_he);                
                 echo "$cf_he  = $cf_he+$cf_he2 <br>";
-                $cf_he  = $cf_he+$cf_he2;
-                                
-
+                $cf_he        = $cf_he+$cf_he2;
             } 
             $presentase = $cf_he*100;
             echo "$presentase";  
@@ -183,35 +181,34 @@ class SPakarController extends Controller
     }
 
     public function indexHasil(){
-    $pasien_id = \Session::get('pasien_id');
+    $pasien_id  = \Session::get('pasien_id');
     $periksa_id = \Session::get('periksa_id');
-    $hasil     = \App\HitungPersen::orderBy('persen','desc')
+    $hasil      = \App\HitungPersen::orderBy('persen','desc')
                                     ->wherePasienId($pasien_id)
                                     ->wherePeriksaId($periksa_id)
                                     ->take(1)->first();
     $hasilchart = \App\HitungPersen::wherePasienId($pasien_id)
                                     ->wherePeriksaId($periksa_id)
                                     ->get();
-    $data['hasil']      =$hasil;
-    $data['hasilchart'] =$hasilchart;
+    $data['hasil']      = $hasil;
+    $data['hasilchart'] = $hasilchart;
     //dd($hasil);
     return view('frontend/sistemPakarHasil',$data);
     }
 
     public function pdf(){
-    $pasien_id = \Session::get('pasien_id');
+    $pasien_id  = \Session::get('pasien_id');
     $periksa_id = \Session::get('periksa_id');
-    $hasil     = \App\HitungPersen::orderBy('persen','desc')
+    $hasil      = \App\HitungPersen::orderBy('persen','desc')
                                     ->wherePasienId($pasien_id)
                                     ->wherePeriksaId($periksa_id)
                                     ->take(1)->first();
     $hasilchart = \App\HitungPersen::wherePasienId($pasien_id)
                                     ->wherePeriksaId($periksa_id)
                                     ->get();
-    $data['hasil']      =$hasil;
-    $data['hasilchart'] =$hasilchart;
-        $pdf = \PDF::loadView('frontend/diagnosaPdf', $data);
-        return $pdf->stream('diagnosa.pdf');
+    $data['hasil']      = $hasil;
+    $data['hasilchart'] = $hasilchart;
+    $pdf = \PDF::loadView('frontend/diagnosaPdf', $data);
+    return $pdf->stream('diagnosa.pdf');
     }
-
 }
