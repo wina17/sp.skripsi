@@ -64,7 +64,9 @@
                             <div id="collapse1_6" class="panel-collapse noScroll collapse" role="tabpanel" aria-labelledby="headingOne" data-parent="#bootstrap-accordion_6">
                                 <div class="panel-body p-4">
                                     <p class="mbr-fonts-style panel-text display-7">
-                                       Mobirise is an offline app for Window and Mac to easily create small/medium websites, landing pages, online resumes and portfolios, promo sites for apps, events, services and products.</p>
+                                        1.   Melakukan analisa tentang ilmu pakar yang digunakan pada saat mendiagnosis suatu penyakit dan penggunaan metode Certainty Factor yang membantu sistem melakukan diagnosis.
+                                        2.  Merancang sistem pakar yang dapat membantu mendiagnosis penyakit yang dialami oleh anjing tanpa perlu kehadiran seorang pakar.
+                                        3.  Melakukan evaluasi dari hasil perancangan sistem dengan membandingkan dengan hasil analisa dari pakar.</p>
                                 </div>
                             </div>
                         </div>
@@ -80,7 +82,9 @@
                             <div id="collapse2_6" class="panel-collapse noScroll collapse" role="tabpanel" aria-labelledby="headingTwo" data-parent="#bootstrap-accordion_6">
                                 <div class="panel-body p-4">
                                     <p class="mbr-fonts-style panel-text display-7">
-                                       Mobirise is perfect for non-techies who are not familiar with the intricacies of web development and for designers who prefer to work as visually as possible, without fighting with code. Also great for pro-coders for fast prototyping and small customers' projects.</p>
+                                       Sedangkan manfaat yang akan didapat dari hasil penelitian ini, yaitu:
+                                        1.  Mendapatkan informasi tentang penyakit dan perawatan anjing lebih praktis dengan memanfaatkan website yang mudah diakses oleh pengguna.
+                                        2.  Membantu pengguna untuk mendiagnosis penyakit yang dialami oleh anjing dengan menjawab pertanyaan pada sesi konsultasi dengan sistem.</p>
                                 </div>
                             </div>
                         </div>
@@ -95,7 +99,7 @@
                             <div id="collapse3_6" class="panel-collapse noScroll collapse" role="tabpanel" aria-labelledby="headingThree" data-parent="#bootstrap-accordion_6">
                                 <div class="panel-body p-4">
                                     <p class="mbr-fonts-style panel-text display-7">
-                                       Key differences from traditional builders:<br>* Minimalistic, extremely <strong>easy-to-use</strong> interface<br>* <strong>Mobile</strong>-friendliness, latest website blocks and techniques "out-the-box"<br>* <strong>Free</strong> for commercial and non-profit use</p>
+                                       Sistem ini mampu melakukan diagnosa terkomputerisasi untuk 10 jenis penyakit, diantaranya: Rabies, Canine Cough, Canine Distemper, Canine Parvovirus, Heartworm, Roundworm, Earmites dan Lyme Brucellosis</p>
                                 </div>
                             </div>
                         </div>

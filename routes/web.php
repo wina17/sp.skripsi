@@ -36,11 +36,10 @@ Route::get('/praktikDokter', function () {
 Route::get('/tipsInfo', function () {
     return view('frontend/tipsInfo');
 });
-
-// //routing halaman artikel untuk frontend
-// Route::get('/tipsInfo/artikelA', function () {
-//     return view('frontend/artikelA');
-// });
+//routing halaman artikel untuk frontend
+Route::get('/tipsInfo/artikelA', function () {
+    return view('frontend/artikelA');
+});
 
 /* Routing untuk sisi backend
 website menuju administrator*/
@@ -87,11 +86,3 @@ Route::post('/simpanaturan', 'AturanController@simpan');
 Route::get('/dataAturan/hapus/{id}', 'AturanController@hapus');
 Route::get('/dataAturan/edit/{id}', 'AturanController@edit');
 Route::put('/dataAturan/update/{id}', 'AturanController@update');
-
-//data artikel
-Route::get('/dataArtikel', 'ArtikelController@index')->name('dataArtikel');
-Route::get('/dataArtikel/tambah', 'ArtikelController@tambah')->name('tambahArtikel');
-Route::post('/simpanartikel', 'ArtikelController@simpan');
-Route::get('/dataArtikel/hapus/{id}', 'ArtikelController@hapus');
-Route::get('/dataArtikel/edit/{id}', 'ArtikelController@edit');
-Route::put('/dataArtikel/update/{id}', 'ArtikelController@update');
