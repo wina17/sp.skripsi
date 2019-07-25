@@ -28,52 +28,6 @@
 	}
 	</style>
 <body>
-{{-- <script src="{{ ltrim(public_path('chart/highcharts.js')) }}"></script>
-<script>
-  $(function () {
-    $('#container3').highcharts({
-        chart: {
-            plotBackgroundColor: null,
-            plotBorderWidth: null,
-            plotShadow: false,
-            type: 'pie'
-        },
-        title: {
-            text: 'PERBANDINGAN DENGAN PENYAKIT LAINNYA '
-        },
-        tooltip: {
-            pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
-        },
-        plotOptions: {
-            pie: {
-                allowPointSelect: true,
-                cursor: 'pointer',
-                dataLabels: {
-                    enabled: true,
-                    format: '<b>{point.name}</b>: {point.percentage:.1f} %',
-                    style: {
-                        color: (Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black'
-                    }
-                }
-            }
-        },
-        series: [{
-            name: 'Jumlah',
-            colorByPoint: true,
-            data: [
-        @foreach ($hasilchart as $row)
-          {
-            name: '{{ $row->penyakit->nama }}',
-            y: {{ $row->persen }}        
-        },            
-        @endforeach          
-        
-      ]
-        }]
-    });
-});
-  </script> --}}
-
 <div class="container">
 	<div class="sub-container" style="font-size: 20px;">
 		 <p style="font-style: italic; font-size: 12px;">- SISTEM PAKAR DIAGNOSA PENYAKIT ANJING / STIKOM Dinamika Bangsa Jambi-</p>
@@ -94,6 +48,9 @@
                       </tr>
                   </thead>
                   <tbody>
+                    <tr>
+                      {{-- <th>{{ $hasilPdf->gejala->nama }}</th> --}}
+                    </tr>
                   </tbody>
               </table>
           </div>

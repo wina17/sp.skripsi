@@ -8,13 +8,11 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-        Data Tables
-        <small>advanced tables</small>
+        Data Gejala Penyakit
       </h1>
       <ol class="breadcrumb">
         <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-        <li><a href="#">Tables</a></li>
-        <li class="active">Data tables</li>
+        <li class="active">Data Gejala Penyakit</li>
       </ol>
     </section>
 
@@ -58,7 +56,7 @@
                           <td>{{ $gejala->pertanyaan }}</td>
                           <td>{{ $gejala->kode }}</td>
                           <td>
-                            <a onclick="return confirm('Anda yakin menghapus?');" href="{{ url('/dataGejala/hapus/'.$gejala->id) }}" class="btn btn-danger btn-sm"><i class="fa fa-trash-o"style="padding-right: 10px;"></i>Hapus</a>
+                            <a onclick="return confirm('Anda yakin menghapus?');" href="{{ url('/dataGejala/hapus/'.$gejala->id) }}" class="btn btn-danger btn-sm"><i class="fa fa-trash-o"style="padding-right: 10px;"></i>Hapus</a>&nbsp;&nbsp;&nbsp;
                             <a href="{{ url('/dataGejala/edit/'.$gejala->id) }}" class="btn btn-info btn-sm"><i class="fa fa-pencil" style="padding-right: 10px;"></i>Edit
                             </a>
                           </td>

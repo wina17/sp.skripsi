@@ -40,6 +40,9 @@ Route::get('/tipsInfo', function () {
 Route::get('/tipsInfo/artikelA', function () {
     return view('frontend/artikelA');
 });
+Route::get('/tipsInfo/artikelB', function () {
+    return view('frontend/artikelB');
+});
 
 /* Routing untuk sisi backend
 website menuju administrator*/

@@ -120,7 +120,7 @@ class SPakarController extends Controller
                     $hitung->gejala_id   = $gejala_id;
                     $hitung->cf_he       = $cf_he;
                     $hitung->pasien_id   = $pasien_id;
-                    $hitung->periksa_id   = $periksa_id;
+                    $hitung->periksa_id  = $periksa_id;
                     $hitung->save();
                 }                
             }
@@ -147,7 +147,7 @@ class SPakarController extends Controller
             $cf_he = 0;
             $a     = 0;
             $penyakit_id = $penyakit->penyakit_id;
-            echo "<h1>$penyakit_id</h1>";
+            // echo "<h1>$penyakit_id</h1>";
             $diagnosa    = \App\Hitung::wherePasienId($pasien_id)
                                       ->wherePeriksaId($periksa_id)
                                       ->wherePenyakitId($penyakit_id)->get();
@@ -159,17 +159,17 @@ class SPakarController extends Controller
                                            ->first();
                 $cf2        = $v->jawaban;            
                 
-                echo "Gejala $gejala_id : Penyakit $penyakit_id <br>";
+                    // echo "Gejala $gejala_id : Penyakit $penyakit_id <br>";
                 //echo "$cf_he = $cf_he+$v->cf_he * (1 - $cf_he)<br>";
                 //$cf_he = $cf_he+($v->cf_he * (1 - $cf_he));
-                echo "$cf_he  = $cf_he+$v->cf_he * (1 - $cf_he)<br>";
+                    // echo "$cf_he  = $cf_he+$v->cf_he * (1 - $cf_he)<br>";
                 $cf_he2       = $v->cf_he * (1 - $cf_he);                
-                echo "$cf_he  = $cf_he+$cf_he2 <br>";
+                    // echo "$cf_he  = $cf_he+$cf_he2 <br>";
                 $cf_he        = $cf_he+$cf_he2;
             } 
             $presentase = $cf_he*100;
-            echo "$presentase";  
-            echo "<hr />";
+            // echo "$presentase";  
+            // echo "<hr />";
             $hitungPersen = new \App\HitungPersen();
             $hitungPersen->pasien_id   = $pasien_id;
             $hitungPersen->penyakit_id = $penyakit_id;
@@ -197,17 +197,19 @@ class SPakarController extends Controller
     }
 
     public function pdf(){
-    $pasien_id  = \Session::get('pasien_id');
-    $periksa_id = \Session::get('periksa_id');
-    $hasil      = \App\HitungPersen::orderBy('persen','desc')
+    $pasien_id   = \Session::get('pasien_id');
+    $periksa_id  = \Session::get('periksa_id');
+    $gejala_id  = \Session::get('gejala_id');
+    $hasil       = \App\HitungPersen::orderBy('persen','desc')
                                     ->wherePasienId($pasien_id)
                                     ->wherePeriksaId($periksa_id)
                                     ->take(1)->first();
-    $hasilchart = \App\HitungPersen::wherePasienId($pasien_id)
-                                    ->wherePeriksaId($periksa_id)
-                                    ->get();
+    $hasilPdf    = \App\Diagnosa::whereGejalaId($gejala_id)
+                                ->wherePeriksaId($periksa_id)
+                                ->get();
+
     $data['hasil']      = $hasil;
-    $data['hasilchart'] = $hasilchart;
+    $data['hasilPdf']   = $hasilPdf;
     $pdf = \PDF::loadView('frontend/diagnosaPdf', $data);
     return $pdf->stream('diagnosa.pdf');
     }

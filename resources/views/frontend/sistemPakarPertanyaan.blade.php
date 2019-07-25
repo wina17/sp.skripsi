@@ -39,11 +39,11 @@
                       <tr>
                           <th style="text-align: center;">NO</th>
                           <th style="text-align: center;">PERTANYAAN</th>
-                          <th style="text-align: center;">TIDAK</th>
+                          <th style="text-align: center;">SALAH</th>
+                          <th style="text-align: center;">MUNGKIN SALAH</th>
                           <th style="text-align: center;">TIDAK TAHU</th>
-                          <th style="text-align: center;">CUKUP YAKIN</th>
-                          <th style="text-align: center;">YAKIN</th>
-                          <th style="text-align: center;">SANGAT YAKIN</th>
+                          <th style="text-align: center;">MUNGKIN BENAR</th>
+                          <th style="text-align: center;">BENAR</th>
                       </tr>
                   </thead>
                   <tbody>
@@ -53,22 +53,22 @@
                           <td>{{ $gejala->pertanyaan }}</td>
                           <td style="text-align: center;">
                           	{!! Form::hidden('gejala_id[]', $gejala->id, []) !!}
-                          	{{   Form::radio('jawaban['.$gejala->id.']', 0,false, ['id' => 'tidak'.$gejala->id]) }}	
+                          	{{   Form::radio('jawaban['.$gejala->id.']', -1,false, ['id' => 'tidak'.$gejala->id]) }}	
                           </td>                          
                           <td style="text-align: center;">
-                          	{{  Form::radio('jawaban['.$gejala->id.']',0.2,false, ['id' => 'tidak_tahu'.$gejala->id]) 
+                          	{{  Form::radio('jawaban['.$gejala->id.']',-0.6,false, ['id' => 'mungkin_salah'.$gejala->id]) 
                           	}}
                           </td style="text-align: center;">
                           <td style="text-align: center;">
-                          	{{  Form::radio('jawaban['.$gejala->id.']',0.4,false, ['id' => 'mungkin'.$gejala->id]) 
+                          	{{  Form::radio('jawaban['.$gejala->id.']',0,false, ['id' => 'tidak_tahu'.$gejala->id]) 
                           	}}
                           </td>
                           <td style="text-align: center;">
-                          	{{  Form::radio('jawaban['.$gejala->id.']',0.8,false, ['id' => 'yakin'.$gejala->id]) 
+                          	{{  Form::radio('jawaban['.$gejala->id.']',0.6,false, ['id' => 'mungkin_benar'.$gejala->id]) 
                           	}}
                           </td>
                           <td style="text-align: center;">
-                          	{{  Form::radio('jawaban['.$gejala->id.']',1,false, ['id' => 'sangat_yakin'.$gejala->id]) 
+                          	{{  Form::radio('jawaban['.$gejala->id.']',1,false, ['id' => 'benar'.$gejala->id]) 
                           	}}
                           </td>
                         </tr>

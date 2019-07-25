@@ -16,7 +16,6 @@
     <section class="content-header">
       <h1>
         Dashboard
-        <small>Control panel</small>
       </h1>
       <ol class="breadcrumb">
         <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
@@ -33,62 +32,54 @@
       <div class="row">
         <div class="col-lg-3 col-xs-6">
           <!-- small box -->
-          <div class="small-box bg-aqua">
+          <a href="{{ route('dataAdmin') }}" class="small-box bg-aqua">
             <div class="inner">
-              <h3>150</h3>
-
-              <p>New Orders</p>
+              <h3>ADMIN</h3>
+              <p>Data Admin</p>
             </div>
             <div class="icon">
-              <i class="ion ion-bag"></i>
+              <i class="fa fa-users"></i>
             </div>
-            <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
-          </div>
+          </a>
         </div>
         <!-- ./col -->
         <div class="col-lg-3 col-xs-6">
           <!-- small box -->
-          <div class="small-box bg-green">
+          <a href="{{ route('dataPenyakit') }}" class="small-box bg-green">
             <div class="inner">
-              <h3>53<sup style="font-size: 20px">%</sup></h3>
-
-              <p>Bounce Rate</p>
+              <h3>DISEASES</h3>
+              <p>Data Penyakit</p>
             </div>
             <div class="icon">
-              <i class="ion ion-stats-bars"></i>
+              <i class="fa fa-file-text-o"></i>
             </div>
-            <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
-          </div>
+          </a>
         </div>
         <!-- ./col -->
         <div class="col-lg-3 col-xs-6">
           <!-- small box -->
-          <div class="small-box bg-yellow">
+          <a href="{{ route('dataGejala') }}" class="small-box bg-yellow">
             <div class="inner">
-              <h3>44</h3>
-
-              <p>User Registrations</p>
+              <h3>SYMTOMPS</h3>
+              <p>Data Gejala Penyakit</p>
             </div>
             <div class="icon">
-              <i class="ion ion-person-add"></i>
+              <i class="fa fa-file-text-o"></i>
             </div>
-            <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
-          </div>
+          </a>
         </div>
         <!-- ./col -->
         <div class="col-lg-3 col-xs-6">
           <!-- small box -->
-          <div class="small-box bg-red">
+          <a href="{{ route('dataAturan') }}" class="small-box bg-red">
             <div class="inner">
-              <h3>65</h3>
-
-              <p>Unique Visitors</p>
+              <h3>RULES</h3>
+              <p>Data Aturan</p>
             </div>
             <div class="icon">
-              <i class="ion ion-pie-graph"></i>
+              <i class="fa fa-book"></i>
             </div>
-            <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
-          </div>
+          </a>
         </div>
         <!-- ./col -->
       </div>
@@ -96,11 +87,39 @@
       <!-- Main row -->
       <div class="row">
         <!-- Left col -->
-        <section class="col-lg-7 connectedSortable">
+        <section class="col-lg-8 connectedSortable">
+          <!-- Hello Box -->
+          <div class="box box-primary">
+            <div class="box-header with-border">
+              <h3>Selamat bekerja, <i>{{ Auth::user()->name }}</i></h3>
+            </div>
+            <!-- /.box-header -->
+            <div class="box-body">
+              <strong><i class="fa fa-paw margin-r-5"></i> Panduan Menu</strong><br>
+              <p style="padding-top: 10px; text-align: justify; font-size: 16px;">Apabila Anda pengguna baru, Anda dapat memperhatikan penjelasan berikut ini. </p>
+              <ul style="text-align: justify; font-size: 16px; padding-right: 35px;">
+                <li>Menu data Admin, menu ini digunakan untuk mengelola data admin yang dapat mengakses backend system</li>
+                <li>Menu data Penyakit, menu ini digunakan untuk mengelola seluruh data jenis penyakit pada hewan peliharaan dan bagaimana tindakan medis awal yang dapat dilakukan oleh pemilik hewan</li>
+                <li>Menu data Gejala Penyakit, menu ini digunakan untuk mengelola seluruh gejala medis pada suatu penyakit.</li>
+                <li>Menu data Aturan, menu ini digunakan untuk mengelola aturan relasi antara suatu penyakit dengan gejala penyakit lainnya, berserta tingkat keyakinan sebab-akibat yang gejala penyakit yang timbul akan berpengaruh pada suatu penyakit.</li>
+              </ul>
+              
+              <hr>
+              
+              <strong><i class="fa fa-paw margin-r-5"></i> Catatan</strong>
+              <p style="padding-top: 10px; text-align: justify; font-size: 16px;">
+                Sistem pakar diagnosa penyakit pada anjing dibangun dengan maksud memberikan informasi tetang kesehatan kepada pemilik hewan peliharaan dan masyarakat umum. Maka dari itu sistem ini perlu bantuan Anda untuk memberikan data yang terupdate agar akurasi diagnosa oleh sistem dapat terjaga bahkan berkembang jauh lebih baik.  
+              </p>
+
+              <hr>
+            </div>
+            <!-- /.box-body -->
+          </div>
+          <!-- /.box -->
         </section>
         <!-- /.Left col -->
         <!-- right col (We are only adding the ID to make the widgets sortable)-->
-        <section class="col-lg-5 connectedSortable">
+        <section class="col-lg-4 connectedSortable">
           <!-- Calendar -->
           <div class="box box-solid bg-green-gradient">
             <div class="box-header">
@@ -130,49 +149,6 @@
             <div class="box-body no-padding">
               <!--The calendar -->
               <div id="calendar" style="width: 100%"></div>
-            </div>
-            <!-- /.box-body -->
-            <div class="box-footer text-black">
-              <div class="row">
-                <div class="col-sm-6">
-                  <!-- Progress bars -->
-                  <div class="clearfix">
-                    <span class="pull-left">Task #1</span>
-                    <small class="pull-right">90%</small>
-                  </div>
-                  <div class="progress xs">
-                    <div class="progress-bar progress-bar-green" style="width: 90%;"></div>
-                  </div>
-
-                  <div class="clearfix">
-                    <span class="pull-left">Task #2</span>
-                    <small class="pull-right">70%</small>
-                  </div>
-                  <div class="progress xs">
-                    <div class="progress-bar progress-bar-green" style="width: 70%;"></div>
-                  </div>
-                </div>
-                <!-- /.col -->
-                <div class="col-sm-6">
-                  <div class="clearfix">
-                    <span class="pull-left">Task #3</span>
-                    <small class="pull-right">60%</small>
-                  </div>
-                  <div class="progress xs">
-                    <div class="progress-bar progress-bar-green" style="width: 60%;"></div>
-                  </div>
-
-                  <div class="clearfix">
-                    <span class="pull-left">Task #4</span>
-                    <small class="pull-right">40%</small>
-                  </div>
-                  <div class="progress xs">
-                    <div class="progress-bar progress-bar-green" style="width: 40%;"></div>
-                  </div>
-                </div>
-                <!-- /.col -->
-              </div>
-              <!-- /.row -->
             </div>
           </div>
           <!-- /.box -->

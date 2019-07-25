@@ -55,30 +55,24 @@
           <!-- User Account: style can be found in dropdown.less -->
           <li class="dropdown user user-menu">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-              <img src="{{ asset ('backend/dist/img/user2-160x160.jpg') }}" class="user-image" alt="User Image">
-              <span class="hidden-xs">Alexander Pierce</span>
+              <span class="hidden-xs">{{ Auth::user()->name }}</span>
             </a>
             <ul class="dropdown-menu">
               <!-- User image -->
               <li class="user-header">
-                <img src="{{ asset ('backend/dist/img/user2-160x160.jpg') }}" class="img-circle" alt="User Image">
+                <img src="{{ asset ('frontend/assets/images/mbr-122x116.jpg') }}" class="img-circle" alt="User Image">
                 <p>
-                  Alexander Pierce - Web Developer
-                  <small>Member since Nov. 2012</small>
+                  {{ Auth::user()->name }}
+                  <small>{{ Auth::user()->email }}</small>
                 </p>
               </li>
               <!-- Menu Footer-->
               <li class="user-footer">
-                <div class="pull-left">
-                  <a href="#" class="btn btn-default btn-flat">Profile</a>
-                </div>
-                <div class="pull-right">
                   <a href="{{ route('logout') }}" class="btn btn-default btn-flat" onclick="event.preventDefault();
                                            document.getElementById('logout-form').submit();">Logout</a>
                   <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                   @csrf
                 </form>
-                </div>
               </li>
             </ul>
           </li>
@@ -97,10 +91,10 @@
       <!-- Sidebar user panel -->
       <div class="user-panel">
         <div class="pull-left image">
-          <img src="{{ asset ('backend/dist/img/user2-160x160.jpg') }}" class="img-circle" alt="User Image">
+          <img src="{{ asset ('frontend/assets/images/mbr-122x116.jpg') }}" class="img-circle" alt="User Image">
         </div>
         <div class="pull-left info">
-          <p>Alexander Pierce</p>
+          <p>{{ Auth::user()->name }}</p>
           <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
         </div>
       </div>
@@ -109,38 +103,37 @@
         <li class="header">MAIN NAVIGATION</li>
         <li>
           <a href="{{ route('homeAdmin') }}">
-            <i class="fa fa-dashboard"></i>
+            <i class="fa fa-circle-o text-red"></i>
             <span>Home</span>
           </a>
         </li>
         <li>
           <a href="{{ route('dataAdmin') }}">
-            <i class="fa fa-dashboard"></i>
+            <i class="fa fa-circle-o text-yellow"></i>
             <span>Data Admin</span>
           </a>
         </li>        
         <li>
           <a href="{{ route('dataPenyakit') }}">
-            <i class="fa fa-dashboard"></i>
+            <i class="fa fa-circle-o text-red"></i>
             <span>Data Penyakit</span>
           </a>
         </li>
         <li>
           <a href="{{ route('dataGejala') }}">
-            <i class="fa fa-dashboard"></i>
+            <i class="fa fa-circle-o text-yellow"></i>
             <span>Data Gejala</span>
           </a>
         </li>
         <li>
           <a href="{{ route('dataAturan') }}">
-            <i class="fa fa-book"></i> 
+            <i class="fa fa-circle-o text-red"></i> 
             <span>Data Aturan</span>
           </a>
         </li>
-        <li class="header">LABELS</li>
-        <li><a href="#"><i class="fa fa-circle-o text-red"></i> <span>Important</span></a></li>
-        <li><a href="#"><i class="fa fa-circle-o text-yellow"></i> <span>Warning</span></a></li>
-        <li><a href="#"><i class="fa fa-circle-o text-aqua"></i> <span>Information</span></a></li>
+        <li class="header">ABOUT EXPERT SYSTEMS</li>
+        <li><a href="#"><i class="fa fa-circle-o text-aqua"></i> <span>Latar Belakang dan Tujuan</span></a></li>
+        <li><a href="#"><i class="fa fa-circle-o text-aqua"></i> <span>Profil Web Programmer</span></a></li>
       </ul>
     </section>
     <!-- /.sidebar -->

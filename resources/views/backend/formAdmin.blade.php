@@ -5,13 +5,12 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-        Data Tables
-        <small>advanced tables</small>
+        Data Admin
       </h1>
       <ol class="breadcrumb">
         <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-        <li><a href="#">Tables</a></li>
-        <li class="active">Data tables</li>
+        <li><a href="#">Data Admin</a></li>
+        <li class="active">Form Data Admin</li>
       </ol>
     </section>
     
@@ -33,27 +32,27 @@
                 </div>
             @endif
             {{ Form::model($user, array('action' => $action, 'files' => true,)) }}
-            <div class="form-group" style="padding-top: 5px; padding-left: 10px;padding-right: 10px;">    
+            <div class="form-group" style="padding-top: 5px; padding-left: 30px;padding-right: 30px;">    
                 {{ Form::label('name', 'NAMA LENGKAP') }}    
                 {{ Form::text('name',null,['class'=>'form-control','placeholder' => 'Nama ','autofocus']) }}
                 <span class="text-danger">{{ $errors->first('name') }}</span>
             </div>
-            <div class="form-group" style="padding-top: 5px; padding-left: 10px;padding-right: 10px;">
+            <div class="form-group" style="padding-left: 30px; padding-right: 30px;">
                 {{ Form::label('email', 'EMAIL') }}
                 {{ Form::text('email',null,array('class'=>'form-control','placeholder' => 'Email')) }}
                 <span class="text-danger">{{ $errors->first('email') }}</span>
             </div>
-            <div class="form-group" style="padding-top: 5px; padding-left: 10px;padding-right: 10px;">
+            <div class="form-group" style="padding-left: 30px;padding-right: 30px;">
                 {{ Form::label('password', 'PASSWORD') }}
                 {{ Form::password('password',array('class' => 'form-control','placeholder' => 'Password')) }}
                 <span class="text-danger">{{ $errors->first('password') }}</span>
             </div>
-            <div class="form-group" style="padding-top: 5px; padding-left: 10px;padding-right: 10px;">
+            <div class="form-group" style="padding-left: 30px;padding-right: 30px;">
                 {{ Form::label('password_confirmation', 'KONFIRMASI PASSWORD') }}
                 {{ Form::password('password_confirmation',array('class' => 'form-control','placeholder' => 'Konfirmasi Password')) }}    
                 <span class="text-danger">{{ $errors->first('password_confirmation') }}</span>
             </div>
-            <div class="form-group" style="padding-bottom: 50px; padding-left: 10px; padding-top: 5px; padding-right: 10px;">
+            <div class="form-group" style="padding-bottom: 50px; padding-left: 30px; padding-top: 5px; padding-right: 30px;">
                 {!! Form::submit($btn_submit, ['class' => 'btn btn-primary col-md-2']) !!}
                 <a class="btn btn-info col-md-2 pull-right" href="{{ route('dataAdmin') }}" role="button">Kembali</a>
             </div>

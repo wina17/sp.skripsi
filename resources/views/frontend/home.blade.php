@@ -7,7 +7,7 @@
             <div class="mbr-white col-md-10">
                 <h1 class="mbr-section-title mbr-bold pb-3 mbr-fonts-style display-1">Sistem Pakar Diagnosa Penyakit Anjing</h1>
                 
-                <p class="mbr-text pb-3 mbr-fonts-style display-5">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent lobortis, urna sed sagittis sollicitudin, odio eros commodo tortor, non venenatis est augue at risus..&nbsp;</p>
+                <p class="mbr-text pb-3 mbr-fonts-style display-5">Cara mudah dan cepat mendeteksi penyakit anjing kesayangan Anda ...</p>
                 
             </div>
         </div>
@@ -63,10 +63,12 @@
                             </div>
                             <div id="collapse1_6" class="panel-collapse noScroll collapse" role="tabpanel" aria-labelledby="headingOne" data-parent="#bootstrap-accordion_6">
                                 <div class="panel-body p-4">
-                                    <p class="mbr-fonts-style panel-text display-7">
-                                        1.   Melakukan analisa tentang ilmu pakar yang digunakan pada saat mendiagnosis suatu penyakit dan penggunaan metode Certainty Factor yang membantu sistem melakukan diagnosis.
-                                        2.  Merancang sistem pakar yang dapat membantu mendiagnosis penyakit yang dialami oleh anjing tanpa perlu kehadiran seorang pakar.
-                                        3.  Melakukan evaluasi dari hasil perancangan sistem dengan membandingkan dengan hasil analisa dari pakar.</p>
+                                    <p class="mbr-fonts-style panel-text display-7"> Berdasarkan penjelasan pada kata pengantar, adapun tujuan dari pembangunan sistem pakar ini adalah:</p>
+                                    <ol class="mbr-fonts-style panel-text display-7" style="color: gray">
+                                        <li>Melakukan analisa tentang ilmu pakar yang digunakan pada saat mendiagnosis suatu penyakit dan penggunaan metode Certainty Factor yang membantu sistem melakukan diagnosis.</li>
+                                        <li>Merancang sistem pakar yang dapat membantu mendiagnosis penyakit yang dialami oleh anjing tanpa perlu kehadiran seorang pakar.</li>
+                                        <li>Melakukan evaluasi dari hasil perancangan sistem dengan membandingkan dengan hasil analisa dari pakar.</li>
+                                    </ol>
                                 </div>
                             </div>
                         </div>
@@ -81,10 +83,11 @@
                             </div>
                             <div id="collapse2_6" class="panel-collapse noScroll collapse" role="tabpanel" aria-labelledby="headingTwo" data-parent="#bootstrap-accordion_6">
                                 <div class="panel-body p-4">
-                                    <p class="mbr-fonts-style panel-text display-7">
-                                       Sedangkan manfaat yang akan didapat dari hasil penelitian ini, yaitu:
-                                        1.  Mendapatkan informasi tentang penyakit dan perawatan anjing lebih praktis dengan memanfaatkan website yang mudah diakses oleh pengguna.
-                                        2.  Membantu pengguna untuk mendiagnosis penyakit yang dialami oleh anjing dengan menjawab pertanyaan pada sesi konsultasi dengan sistem.</p>
+                                    <p class="mbr-fonts-style panel-text display-7">Sedangkan manfaat yang akan didapat dari hasil penelitian ini, yaitu:</p>
+                                    <ol class="mbr-fonts-style panel-text display-7" style="color: gray;">
+                                        <li>Mendapatkan informasi tentang penyakit dan perawatan anjing lebih praktis dengan memanfaatkan website yang mudah diakses oleh pengguna.</li>
+                                        <li>Membantu pengguna untuk mendiagnosis penyakit yang dialami oleh anjing dengan menjawab pertanyaan pada sesi konsultasi dengan sistem.</li>
+                                    </ol>
                                 </div>
                             </div>
                         </div>
@@ -100,6 +103,9 @@
                                 <div class="panel-body p-4">
                                     <p class="mbr-fonts-style panel-text display-7">
                                        Sistem ini mampu melakukan diagnosa terkomputerisasi untuk 10 jenis penyakit, diantaranya: Rabies, Canine Cough, Canine Distemper, Canine Parvovirus, Heartworm, Roundworm, Earmites dan Lyme Brucellosis</p>
+                                    <div class="embed-responsive embed-responsive-16by9">
+                                        <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/XZ8M6o46KO4?autoplay=1&mute=1&enablejsapi=1" frameborder="0" allowfullscreen></iframe>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -113,8 +119,14 @@
                             </div>
                             <div id="collapse4_6" class="panel-collapse noScroll collapse" role="tabpanel" aria-labelledby="headingFour" data-parent="#bootstrap-accordion_6">
                                 <div class="panel-body p-4">
-                                    <p class="mbr-fonts-style panel-text display-7">
-                                       Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur in nulla ut magna vehicula libero luctus in ipsum consequat faucibus. Ut porta nulla ac dapibus convallis. Curabitur sit amet massa quam. In ut ex auctor, porta neque quis, sagittis purus. Nunc auctor gravida magna, sed efficitur tortor tristique quis.</p>
+                                    <p class="mbr-fonts-style panel-text display-7">Baru pertama kali mencoba sistem ini? Apa yang harus dilakukan? Berikut ini panduan sederhana bagi Anda yang ingin mencoba sistem pakar ini. </p>
+                                       <ul class="mbr-fonts-style panel-text display-7" style="color: gray;">
+                                           <li>Klik menu "Sistem Pakar".</li>
+                                           <li>Isi indentitas pasien dan pemilik hewan dengan benar.</li>
+                                           <li>Jawab pertanyaan kusioner dengan benar.</li>
+                                           <li>Sistem akan menampilkan hasil diagnosa Anda.</li>
+                                       </ul>
+                                    
                                 </div>
                             </div>
                         </div>

@@ -10,6 +10,7 @@
       <ol class="breadcrumb">
         <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
         <li><a href="#">Data Penyakit</a></li>
+        <li class="active">Form Data Penyakit</li>
       </ol>
     </section>
     <!-- Main content -->
@@ -29,22 +30,22 @@
                 </div>
             @endif
             {{ Form::model($penyakit, array('action' => $action, 'files' => true, 'method' => $method)) }}
-                <div class="form-group">    
+                <div class="form-group" style="padding-top: 5px; padding-left: 30px; padding-right: 30px;">    
                     {{ Form::label('nama', 'Nama Penyakit') }}    
                     {{ Form::text('nama',null,['class'=>'form-control','placeholder' => 'Nama Penyakit','autofocus']) }}
                     <span class="text-danger">{{ $errors->first('nama') }}</span>
                 </div>
-                <div class="form-group">    
+                <div class="form-group" style="padding-left: 30px; padding-right: 30px;">    
                     {{ Form::label('solusi', 'Solusi') }}   
                     {{ Form::text('solusi',null,['class'=>'form-control','placeholder' => 'Solusi','autofocus']) }}
                     <span class="text-danger">{{ $errors->first('solusi') }}</span>
                 </div>
-                <div class="form-group">
+                <div class="form-group" style="padding-left: 30px; padding-right: 30px;">
                     {{ Form::label('kode', 'Kode') }}
                     {{ Form::text('kode',null,array('class'=>'form-control','placeholder' => 'Kode')) }}
                     <span class="text-danger">{{ $errors->first('kode') }}</span>
                 </div>
-                <div class="form-group" style="padding-bottom: 50px; padding-left: 10px; padding-top: 5px; padding-right: 10px;">
+                <div class="form-group" style="padding-bottom: 50px; padding-left: 30px; padding-top: 5px; padding-right: 30px;">
                     {!! Form::submit($btn_submit, ['class' => 'btn btn-primary col-md-2']) !!}
                     <a class="btn btn-info col-md-2 pull-right" href="{{ route('dataPenyakit') }}" role="button">Kembali</a>
                 </div>
