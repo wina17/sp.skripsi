@@ -10,4 +10,10 @@ class Diagnosa extends Model
     public function gejala(){
     	return $this->belongsTo('\App\Gejala')->withDefault();
     }
+
+    public function pasien()
+    {
+    	return $this->belongsTo('\App\Pasien');
+    }
+    
 }

@@ -39,18 +39,25 @@
          	Tindakan medis awal yang dapat anda lakukan:<br>
            {{ $hasil->penyakit->solusi }}
          </p><br>
-         <div class="box-body">
+        <div class="box-body">
               <table class="table table-striped table-hover table-bordered">
                   <thead>
                       <tr>
+                         <th style="text-align: center;">PASIEN</th>
                           <th style="text-align: center;">PERTANYAAN</th>
-                          <th style="text-align: center;">JAWABAN</th>
+                          <th style="text-align: center;">BOBOT JAWABAN</th>
                       </tr>
                   </thead>
                   <tbody>
-                    <tr>
-                      {{-- <th>{{ $hasilPdf->gejala->nama }}</th> --}}
-                    </tr>
+                    @forelse ($diagnosa as $row)
+                      <tr>
+                        <td>{{ $row->pasien->nama_anjing }}</td>
+                        <td>{{ $row->gejala->pertanyaan }}</td>
+                        <td>{{ $row->jawaban }}</td>
+                      </tr>
+                    @empty
+                      {{-- empty expr --}}
+                    @endforelse
                   </tbody>
               </table>
           </div>

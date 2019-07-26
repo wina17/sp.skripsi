@@ -190,8 +190,10 @@ class SPakarController extends Controller
     $hasilchart = \App\HitungPersen::wherePasienId($pasien_id)
                                     ->wherePeriksaId($periksa_id)
                                     ->get();
+    $diagnosa = \App\Diagnosa::wherePasienId($pasien_id)->get();
     $data['hasil']      = $hasil;
     $data['hasilchart'] = $hasilchart;
+    $data['diagnosa'] = $diagnosa;
     //dd($hasil);
     return view('frontend/sistemPakarHasil',$data);
     }
@@ -204,12 +206,10 @@ class SPakarController extends Controller
                                     ->wherePasienId($pasien_id)
                                     ->wherePeriksaId($periksa_id)
                                     ->take(1)->first();
-    $hasilPdf    = \App\Diagnosa::whereGejalaId($gejala_id)
-                                ->wherePeriksaId($periksa_id)
-                                ->get();
+    $diagnosa = \App\Diagnosa::wherePasienId($pasien_id)->get();
 
     $data['hasil']      = $hasil;
-    $data['hasilPdf']   = $hasilPdf;
+    $data['diagnosa']   = $diagnosa;
     $pdf = \PDF::loadView('frontend/diagnosaPdf', $data);
     return $pdf->stream('diagnosa.pdf');
     }

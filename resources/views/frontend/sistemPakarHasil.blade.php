@@ -79,6 +79,32 @@
             </div>        
       </div>
     </div>
+    <div class="row">
+      <div class="col-md-6">
+        <div class="box-body">
+              <table class="table table-striped table-hover table-bordered">
+                  <thead>
+                      <tr>
+                         <th style="text-align: center;">PASIEN</th>
+                          <th style="text-align: center;">PERTANYAAN</th>
+                          <th style="text-align: center;">BOBOT JAWABAN</th>
+                      </tr>
+                  </thead>
+                  <tbody>
+                    @forelse ($diagnosa as $row)
+                      <tr>
+                        <td>{{ $row->pasien->nama_anjing }}</td>
+                        <td>{{ $row->gejala->pertanyaan }}</td>
+                        <td>{{ $row->jawaban }}</td>
+                      </tr>
+                    @empty
+                      {{-- empty expr --}}
+                    @endforelse
+                  </tbody>
+              </table>
+          </div>
+      </div>
+    </div>
       
   </div>
 </section>
