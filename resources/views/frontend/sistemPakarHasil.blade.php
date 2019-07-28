@@ -85,7 +85,6 @@
               <table class="table table-striped table-hover table-bordered">
                   <thead>
                       <tr>
-                         <th style="text-align: center;">PASIEN</th>
                           <th style="text-align: center;">PERTANYAAN</th>
                           <th style="text-align: center;">BOBOT JAWABAN</th>
                       </tr>
@@ -93,9 +92,20 @@
                   <tbody>
                     @forelse ($diagnosa as $row)
                       <tr>
-                        <td>{{ $row->pasien->nama_anjing }}</td>
                         <td>{{ $row->gejala->pertanyaan }}</td>
-                        <td>{{ $row->jawaban }}</td>
+                        <td>
+                            @if ($row->jawaban==1)
+                              <p>Benar</p>
+                            @elseif ($row->jawaban==0.6)
+                              <p>Mungkin Benar</p>
+                            @elseif ($row->jawaban==0)
+                              <p>Tidak Tahu</p>
+                            @elseif ($row->jawaban==-0.6)
+                              <p>Mungkin Salah</p>
+                            @else
+                              <p>Salah</p>
+                            @endif
+                        </td>
                       </tr>
                     @empty
                       {{-- empty expr --}}
