@@ -2,7 +2,7 @@
 @section('content')
 <div class="login-box">
   <div class="login-logo">
-    <a href="">Login <b>Admin</b>LTE</a>
+    <a href="" style="color: white;">Login <b>Admin</b>SP</a>
   </div>
   <!-- /.login-logo -->
   <div class="login-box-body">
@@ -33,7 +33,7 @@
           <button type="submit" class="btn btn-primary btn-block btn-flat">Sign In</button>
         </div>
       </div>
-      <div class="row">
+      {{-- <div class="row">
         <div class="checkbox icheck col-xs-6" style="padding-left: 20px;">
             <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
             <label class="form-check-label" for="remember">
@@ -43,7 +43,7 @@
           <div class="col-xs-6" style="padding-top: 10px;">
           <a href="{{ url('/resetPass') }}">{{ __('Forgot Your Password?') }}</a>
           </div>
-      </div>
+      </div> --}}
         <!-- /.col -->
     </form>
   </div>

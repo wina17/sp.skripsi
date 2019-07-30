@@ -131,9 +131,9 @@
             <span>Data Aturan</span>
           </a>
         </li>
-        <li class="header">ABOUT EXPERT SYSTEMS</li>
+        {{-- <li class="header">ABOUT EXPERT SYSTEMS</li>
         <li><a href="#"><i class="fa fa-circle-o text-aqua"></i> <span>Latar Belakang dan Tujuan</span></a></li>
-        <li><a href="#"><i class="fa fa-circle-o text-aqua"></i> <span>Profil Web Programmer</span></a></li>
+        <li><a href="#"><i class="fa fa-circle-o text-aqua"></i> <span>Profil Web Programmer</span></a></li> --}}
       </ul>
     </section>
     <!-- /.sidebar -->

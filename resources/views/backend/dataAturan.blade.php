@@ -53,7 +53,19 @@
                           <td style="text-align: center;">{{ $loop->iteration }}</td>
                           <td>{{ $aturan->penyakit->nama }}</td>
                           <td>{{ $aturan->gejala->nama }}</td>
-                          <td>{{ $aturan->cf_pakar }}</td>
+                          <td>
+                            @if ($aturan->cf_pakar==0.8)
+                              <p>Benar</p>
+                            @elseif ($aturan->cf_pakar==0.6)
+                              <p>Cukup Yakin</p>
+                            @elseif ($aturan->cf_pakar==0.4)
+                              <p>Mungkin</p>
+                            @elseif ($aturan->cf_pakar==0.2)
+                              <p>Tidak Tahu</p>
+                            @else
+                              <p>Tidak</p>
+                            @endif
+                          </td>
                           <td>{{ $aturan->kode}}</td>
                           <td>
                             <a onclick="return confirm('Anda yakin menghapus?');" href="{{ url('/dataAturan/hapus/'.$aturan->id) }}" class="btn btn-danger btn-sm"><i class="fa fa-trash-o"style="padding-right: 10px;"></i>Hapus</a>&nbsp;&nbsp;&nbsp;

@@ -15,20 +15,15 @@
     <div class="container">
 
       <div class="row">
-
         <!-- Blog Entries Column -->
         <div class="col-md-8">
-
-          <h1 class="my-4">Page Heading
-            <small>Secondary Text</small>
-          </h1>
-
           <!-- Blog Post -->
-          <div class="card mb-4">
-            <img class="card-img-top" src="http://placehold.it/750x300" alt="Card image cap">
+          <div class="card mb-4" style="padding-top: 50px;">
+          </style>
+            <img class="card-img-top" src="https://i0.wp.com/www.infocatdog.com/wp-content/uploads/2018/08/WhatsApp-Image-2018-08-09-at-3.41.48-PM-3.jpeg?w=900" alt="Card image cap" style="height: 350px; width: 730px;">
             <div class="card-body">
-              <h2 class="card-title">Post Title A</h2>
-              <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis aliquid atque, nulla? Quos cum ex quis soluta, a laboriosam. Dicta expedita corporis animi vero voluptate voluptatibus possimus, veniam magni quis!</p>
+              <h2 class="card-title">Waspada Scabies Gatalnya Bikin Stress</h2>
+              <p class="card-text">Pernahkah petlovers memergoki hewan kesayangannya tidak nyaman karena gatal? Bisa jadi hewan kesayangan petlovers terkena scabies, lalu bagaimana cara mengatasinya?</p>
               <a href="{{ url('/tipsInfo/artikelA') }}" class="btn btn-primary">Read More &rarr;</a>
             </div>
             <div class="card-footer text-muted">
@@ -82,32 +77,38 @@
 
           <!-- Categories Widget -->
           <div class="card my-4">
-            <h5 class="card-header">Categories</h5>
+            <h5 class="card-header">Kategori</h5>
             <div class="card-body">
               <div class="row">
                 <div class="col-lg-6">
                   <ul class="list-unstyled mb-0">
                     <li>
-                      <a href="#">Web Design</a>
+                      <a href="#">Kesehatan</a>
                     </li>
                     <li>
-                      <a href="#">HTML</a>
+                      <a href="#">Adopt Pet</a>
                     </li>
                     <li>
-                      <a href="#">Freebies</a>
+                      <a href="#">Dog Food</a>
+                    </li>
+                    <li>
+                      <a href="#">Dog Snack</a>
                     </li>
                   </ul>
                 </div>
                 <div class="col-lg-6">
                   <ul class="list-unstyled mb-0">
                     <li>
-                      <a href="#">JavaScript</a>
+                      <a href="#">Hibah Pet</a>
                     </li>
                     <li>
-                      <a href="#">CSS</a>
+                      <a href="#">Lost Pet</a>
                     </li>
                     <li>
-                      <a href="#">Tutorials</a>
+                      <a href="#">Pet Lovers Event</a>
+                    </li>
+                    <li>
+                      <a href="#">Pet Choker</a>
                     </li>
                   </ul>
                 </div>
@@ -117,10 +118,20 @@
 
           <!-- Side Widget -->
           <div class="card my-4">
-            <h5 class="card-header">Side Widget</h5>
+            <h5 class="card-header">Artikel Lainnya</h5>
             <div class="card-body">
-              You can put anything you want inside of these side widgets. They are easy to use, and feature the new Bootstrap 4 card containers!
+              <h5 style="text-align: center;">
+                <a href="https://anjingkita.com/artikel/469/siberian-husky">
+                  <img src="https://i2.wp.com/shopee.co.id/inspirasi-shopee/wp-content/uploads/2018/01/Butuh-Teman-Hewan-Penjaga-5-Anjing-Ini-Bisa-Jadi-Jawabannya-2.jpeg?fit=3099%2C2207&ssl=1" alt="" title="" style="max-height: 250px; max-width: 250px;"><br><br>Iren</a>
+              </h5>
             </div>
+            <div class="card-body">
+              <h5 style="text-align: center;">
+                <a href="https://anjingkita.com/artikel/469/siberian-husky">
+                  <img src="https://i2.wp.com/shopee.co.id/inspirasi-shopee/wp-content/uploads/2018/01/Butuh-Teman-Hewan-Penjaga-5-Anjing-Ini-Bisa-Jadi-Jawabannya-2.jpeg?fit=3099%2C2207&ssl=1" alt="" title="" style="max-height: 250px; max-width: 250px;"><br><br>Iren</a>
+              </h5>
+            </div>
+
           </div>
 
         </div>

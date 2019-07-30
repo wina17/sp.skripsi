@@ -12,7 +12,7 @@ class SPakarController extends Controller
     	$pasien 			= new \App\Pasien();
 		$data['pasien'] 	= $pasien;
 		$data['action'] 	= 'SPakarController@simpan';
-		$data['btn_submit'] = 'Selanjutnya';		
+		$data['btn_submit'] = 'Simpan';		
 		$data['method'] 	= 'POST'; 
     	return view('frontend/sistemPakar',$data);
     }

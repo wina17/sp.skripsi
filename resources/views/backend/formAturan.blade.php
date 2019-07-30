@@ -44,7 +44,7 @@
             </div>
             <div class="form-group" style="padding-left: 30px; padding-right: 30px;">    
                 {{ Form::label('cf_pakar', 'NILAI CF PAKAR') }}
-                {{ Form::text('cf_pakar',null,['class'=>'form-control','placeholder' => 'Nilai CF Pakar','autofocus']) }}
+                {{ Form::select('cf_pakar', array('0.8'=>'Benar','0.6'=>'Cukup Yakin','0.4'=>'Mungkin','0.2'=>'Tidak Tahu','0'=>'Tidak'), null,['class'=>'form-control','placeholder' => '- Pilih salah satu -','autofocus']) }}
                 <span class="text-danger">{{ $errors->first('cf_pakar') }}</span>
             </div>
             <div class="form-group" style="padding-left: 30px; padding-right: 30px;">    

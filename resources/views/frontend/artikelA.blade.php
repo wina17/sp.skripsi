@@ -21,7 +21,7 @@
           <hr>
 
           <!-- Date/Time -->
-          <p>Posted on January 1, 2018 at 12:00 PM</p>
+          <p>Posted on July 25, 2019 at 12:00 PM</p>
 
           <hr>
 

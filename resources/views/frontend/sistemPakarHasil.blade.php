@@ -79,43 +79,6 @@
             </div>        
       </div>
     </div>
-    <div class="row">
-      <div class="col-md-6">
-        <div class="box-body">
-              <table class="table table-striped table-hover table-bordered">
-                  <thead>
-                      <tr>
-                          <th style="text-align: center;">PERTANYAAN</th>
-                          <th style="text-align: center;">BOBOT JAWABAN</th>
-                      </tr>
-                  </thead>
-                  <tbody>
-                    @forelse ($diagnosa as $row)
-                      <tr>
-                        <td>{{ $row->gejala->pertanyaan }}</td>
-                        <td>
-                            @if ($row->jawaban==1)
-                              <p>Benar</p>
-                            @elseif ($row->jawaban==0.6)
-                              <p>Mungkin Benar</p>
-                            @elseif ($row->jawaban==0)
-                              <p>Tidak Tahu</p>
-                            @elseif ($row->jawaban==-0.6)
-                              <p>Mungkin Salah</p>
-                            @else
-                              <p>Salah</p>
-                            @endif
-                        </td>
-                      </tr>
-                    @empty
-                      {{-- empty expr --}}
-                    @endforelse
-                  </tbody>
-              </table>
-          </div>
-      </div>
-    </div>
-      
   </div>
 </section>
 @endsection
